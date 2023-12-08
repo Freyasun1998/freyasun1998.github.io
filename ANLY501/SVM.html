@@ -96,11 +96,11 @@ img:hover {
 
 
 <ul>
-    <li><a href="./ANLY501/About Me.html">About Me</a></li>
-  <li><a href="./ANLY501/Introduction.html">Introduction</a></li>
+    <li><a href="./About Me.html">About Me</a></li>
+  <li><a href="./Introduction.html">Introduction</a></li>
   
   <li class="dropdown">
-    <a href="./ANLY501/Data Gathering.html">Data Gathering</a>
+    <a href="./Data Gathering.html">Data Gathering</a>
     
     <div class="dropdown-content">
     </div>
@@ -108,7 +108,7 @@ img:hover {
 
   
   <li class="dropdown">
-    <a href="./ANLY501/Data Cleaning.html">Data Cleaning</a>
+    <a href="./Data Cleaning.html">Data Cleaning</a>
     
     <div class="dropdown-content">
     </div>
@@ -116,7 +116,7 @@ img:hover {
   
   
 <li class="dropdown">
-    <a href="./ANLY501/Exploring Data.html">Exploring Data</a>
+    <a href="./Exploring Data.html">Exploring Data</a>
     
     <div class="dropdown-content">
     </div>
@@ -124,14 +124,14 @@ img:hover {
 
 
 <li class="dropdown">
-    <a href="./ANLY501/Clustering.html">Clustering</a>
+    <a href="./Clustering.html">Clustering</a>
     
     <div class="dropdown-content">
     </div>
   </li>
 
 <li class="dropdown">
-    <a href="./ANLY501/ARM and Networking.html">ARM and Networking</a>
+    <a href="./ARM and Networking.html">ARM and Networking</a>
     
     <div class="dropdown-content">
       
@@ -139,29 +139,29 @@ img:hover {
   </li>
 
 <li class="dropdown">
-    <a href="./ANLY501/Decision Trees.html">Decision Trees</a>
+    <a href="./Decision Trees.html">Decision Trees</a>
     
     <div class="dropdown-content">
     </div>
   </li>
 
 <li class="dropdown">
-    <a href="./ANLY501/Naive Bayes.html">Naive Bayes</a>
+    <a href="./Naive Bayes.html">Naive Bayes</a>
     
     <div class="dropdown-content">
     </div>
   </li>
 
 <li class="dropdown">
-    <a href="./ANLY501/SVM.html">SVM</a>
+    <a href="./SVM.html">SVM</a>
     
     <div class="dropdown-content">
     </div>
   </li>
 
-<li><a href="./ANLY501/Conclusions.html">Conclusions</a></li>
+<li><a href="./Conclusions.html">Conclusions</a></li>
 
-<li><a href="./ANLY501/Infographic.html">Infographic</a></li>
+<li><a href="./Infographic.html">Infographic</a></li>
 
 </ul>
 
@@ -181,22 +181,22 @@ img:hover {
        <a href=" " class="download" download="SVM_R.R">SVM_R.R</a >
        <p>I used R to create SVM models with three 3 different kernels using my mixed record data.</p>
        <p>1. Lineaer Kernel</p>
-       <p><img src="./ANLY501/Linear coef0-Accuracy.jpg"width=330px height=200px></p>
+       <p><img src="./Linear coef0-Accuracy.jpg"width=330px height=200px></p>
        <p>For linear kernel the hyperparameter 'coef0' is checked. A loop is used to evaluate the change of accuracy under different value. According to the result, the accuracy remains the same for all coef0, which is 0.90.</p>
-       <p><img src="./ANLY501/SVM_linearCM.jpg"width=330px height=200px></p>
+       <p><img src="./SVM_linearCM.jpg"width=330px height=200px></p>
        <p>A percentage confusion matrix is draw using the prediction and the test dataset to check the performance on each label. From the confusion matrix we can see that the false negative rate is 67%, which too high. So linear kernel is not an ideal choice.</p>
        <p>2. PolyNominal Kernel</p>
-       <p><img src="./ANLY501/Poly Degree-Accuracy.jpg"width=330px height=200px></p>
+       <p><img src="./Poly Degree-Accuracy.jpg"width=330px height=200px></p>
        <p>For polynominal kernel the hyperparameter 'degree' is checked. A loop is used to evaluate the change of accuracy under different value. According to the result, the accuracy is the highest when degree is 0.5.</p>
-       <p><img src="./ANLY501/SVM_polyCM.jpg"width=330px height=200px></p>
+       <p><img src="./SVM_polyCM.jpg"width=330px height=200px></p>
        <p>A percentage confusion matrix is draw using the prediction and the test dataset to check the performance on each label. From the confusion matrix we can see that the false negative rate is 100%, which too high. So polynominal kernel is also a bad choice.</p>
       
        <p>3. Sigmoid Kernel</p>
-       <p><img src="./ANLY501/Sigmoid gamma-Accuracy.jpg"width=330px height=200px></p>
+       <p><img src="./Sigmoid gamma-Accuracy.jpg"width=330px height=200px></p>
        <p>For sigmoid kernel the hyperparameter 'gamma' is checked. A loop is used to evaluate the change of accuracy under different value. According to the result, the accuracy is the highest when gamma is approximate to be 0.</p>
-       <p><img src="./ANLY501/SVM_sigCM.jpg"width=330px height=200px></p>
+       <p><img src="./SVM_sigCM.jpg"width=330px height=200px></p>
        <p>A percentage confusion matrix is draw using the prediction and the test dataset to check the performance on each label. From the confusion matrix we can see that the false negative rate is 56%, which too high. So sigmoid kernel is not an ideal choice, but better than the other two.</p>
-       <p><img src="./ANLY501/SVM_plot1.jpg"width=586px height=362px></p>
+       <p><img src="./SVM_plot1.jpg"width=586px height=362px></p>
        <p>Tech Conclusion: By looking at the relationship between two any variables we can understand why the accuracy of these SVM models is too low. Here I only put one graph. </p>
        <p>Non-tech Conclusion: There is a lack of features to distinguish patient with diabetes just using these four vairables. The original dataset has 8 variables. If using more variables to build the model and predict, the accuracy may be improved.</p>
        
@@ -358,24 +358,24 @@ pheatmap(CM3,cluster_cols=F,cluster_rows=F,display_numbers=T,number_format = "%.
         <p>I gathered my text data from ClinicalTrials API with 5 keywords related to diabetes and each keyword is a label in my data set.</p>
         <p><a href=" " class="download" download="Textdataset.csv">Textdataset.csv</a ></p>
         <p><a href=" " class="download" download="SVM.py">SVM.py</a ></p>
-        <p><img src="./ANLY501/Flower1.jpg"width=474px height=584px></p>
+        <p><img src="./Flower1.jpg"width=474px height=584px></p>
         <p>I used Python to create SVM models with three 3 different kernels using my mixed record data.</p>
         <p>1. Lineaer Kernel</p>
-        <p><img src="./ANLY501/C for Linear Kernel_Accuracy(Py-SVM).jpg"width=392px height=278px></p>
+        <p><img src="./C for Linear Kernel_Accuracy(Py-SVM).jpg"width=392px height=278px></p>
         <p>For linear kernel the hyperparameter 'coef0' is checked. A loop is used to evaluate the change of accuracy under different value. According to the result, the accuracy got the highest value when C is 0.1.</p>
-        <p><img src="./ANLY501/SVM_linearCM_Py.jpg"width=460px height=359px></p>
+        <p><img src="./SVM_linearCM_Py.jpg"width=460px height=359px></p>
         <p>The confusion matrix suggest that the linear kernel SVM has a distinct classification performance on the 5 labels with a high accuracy. There is a little misclassifications between 'Diabetes Lifestyle' and 'Diabetes Prevention'.<p>
         <p>2. PolyNominal Kernel</p>
-        <p><img src="./ANLY501/Degree of PolyNominal Kernel(Py-SVM).jpg
+        <p><img src="./Degree of PolyNominal Kernel(Py-SVM).jpg
 "width=386px height=278px></p>
 <p>A loop is used to find the best value for hyperparameter 'degree' for polynominal kernel. Accroding to the result, 1 gives the best accuracy, which is 0.90.</p>
-<p><img src="./ANLY501/SVM_polyCM_Py.jpg"width=460px height=359px></p>
+<p><img src="./SVM_polyCM_Py.jpg"width=460px height=359px></p>
 <p>The confusion matrix suggest that the linear kernel SVM has a distinct classification performance on the 5 labels with a high accuracy. There is a little misclassifications between 'Diabetes Lifestyle' and 'Diabetes Prevention'. The result is quite similar as what we got using linear kernel.</p>
 <p>3. Sigmoid Kernel</p>
-<p><img src="./ANLY501/Gamma of RBF Kernel(Py_SVM).jpg
+<p><img src="./Gamma of RBF Kernel(Py_SVM).jpg
 "width=386px height=278px></p>
 <p>A loop is used to find the best value for hyperparameter 'gamma' for sigmoid kernel. Accroding to the result, 1.2 gives the best accuracy, which is 0.9.</p>
-<p><img src="./ANLY501/SVM_sigCM_Py.jpg"width=460px height=359px></p>
+<p><img src="./SVM_sigCM_Py.jpg"width=460px height=359px></p>
 <p>The confusion matrix suggest that the linear kernel SVM has a distinct classification performance on the 5 labels with a high accuracy. There is a little misclassifications between 'Diabetes Causes' and 'Diabetes Prevention'.</p>
         
         </td>
