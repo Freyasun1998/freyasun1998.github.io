@@ -1,0 +1,196 @@
+---
+title: "560-hw3"
+author: "Jieyi Sun"
+date: "3/3/2022"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(astsa)
+library(forecast)
+library(tseries)
+library(lubridate)
+```
+
+
+1. Get the information that you obtained from your previous EDA about the stationarity of your time series.
+
+Information obtained from
+
+a. ACF graphs &
+
+b. Using the Augmented Dickey-Fuller Test to check the stationarity.
+
+Next,  assuming that you have used log transformation (only if necessary)  let's continue. (Do not start differencing yet)
+
+
+```{r}
+BKNG<-read.csv("~/Desktop/560/560-website/hotel/BKNG_d.csv")
+BKNG$Date=as.Date(BKNG$Date)
+log.Adj.Close<-log(BKNG$Adj.Close)
+data<-data.frame(BKNG$Date,BKNG$Adj.Close,log.Adj.Close)
+colnames(data)<-c("Date", "Adj.Close", "log.Adj.Close")
+```
+
+```{r}
+data %>%
+  ggplot()+
+  geom_line(aes(x=Date,y=Adj.Close, colour="Adj.Close"))+
+  geom_line(aes(x=Date,y=log.Adj.Close, colour="log.Adj.Close"))
+```
+
+2. Determine whether your data are stationary or non-stationary. (Remember ACF plots are more reliable than the ADF test)
+
+If the data is already stationary then skip step 3 and go to step 4.
+
+```{r}
+ts_Adj.Close<-ts(BKNG$Adj.Close,start=decimal_date(as.Date("2020-12-10")),frequency = 253)
+plot(ts_Adj.Close,xlab="year",ylab="Close Price (USD)", main="Booking Adjusted Close Price trend")
+```
+
+```{r}
+par(mfrow = c(2,1))
+acf(ts_Adj.Close, main="ACF Plot of Booking in Closing Price") #high correlation
+log_Close<-log(ts_Adj.Close) # log transformation
+acf(log_Close, main="ACF plot of log transformed Booing Close Price")
+adf.test(ts_Adj.Close) #p-value is greater than 0.05, not stationary
+adf.test(log_Close) #still not stationary
+```
+3. If  your data (or log transformed data) are non-stationary then:
+
+(a). Difference the (transformed) time series data until it is stationary/weakly stationary.
+
+** You can use 1st order, 2nd order or even go up-to 3rd order differencing until your data becomes stationary/weakly stationary.
+
+** Do not over difference your data.
+```{r}
+df.lg.close=diff(log_Close) #difference the log transformed data
+```
+(b). Plot the differenced data and comment.
+```{r}
+plot(df.lg.close) #The time series data looks stationary after 1st order differenced
+```
+
+(c). Also, Use the Augmented Dickey-Fuller Test to check the stationarity of the differenced series.
+```{r}
+adf.test(df.lg.close)# The data is stationary after 1st order difference since p-value is less than 0.05.
+```
+
+4.  Plot the ACF and PACF plots and decide the order of your AR(p) and MA(q) processes in the ARIMA(p,d,q) model. i.e Decide p(from AR model) ,q(from MA model) and d(number of times you differenced).
+```{r}
+par(mfrow=c(2,1))
+acf(df.lg.close) # There is no high correlation after lag 7. I would try [0,7] value for p value
+pacf(df.lg.close) # There is no hign correlation after lag 7. I would try [0,7] value for q value
+# In order to avoid over differencing, I would try d value of 1
+# The best order observed from acf and pacf plot is 0,1,7
+``` 
+5.  Fit your choice of ARIMA(p,d,q) to the data using the code sarima() or Arima() in r.
+
+If you have several choices for p,d,q you may select the model with lowest AIC, BIC or the model with the best model diagnostics.
+
+Write the equation of the model. 
+
+```{r}
+# model fitting
+d=1
+i=1
+temp= data.frame()
+ls=matrix(rep(NA,6*128),nrow=128)
+
+for (p in 1:8)# p=0,1,2,3,4,5,6,7,8
+{
+  for(q in 1:8)# q=0,1,2,3,4,5,6,7,8
+  {
+      if(p-1+d+q-1<=8)
+      {
+        model<- Arima(log(ts_Adj.Close),order=c(p-1,d,q-1),include.drift=TRUE) #including drift because of the obvious trend
+        ls[i,]= c(p-1,d,q-1,model$aic,model$bic,model$aicc)
+        i=i+1
+      }
+    }
+  }
+
+temp= as.data.frame(ls)
+names(temp)= c("p","d","q","AIC","BIC","AICc")
+```
+
+```{r}
+temp[which.min(temp$AIC),] #1,1,3
+temp[which.min(temp$BIC),] #0,1,0
+```
+
+```{r}
+fit1=Arima(log(ts_Adj.Close), order=c(1,1,3)) # order selected by AIC
+summary(fit1)
+```
+
+```{r}
+fit2=Arima(log(ts_Adj.Close), order=c(0,1,0)) # order selected by BIC
+summary(fit2)
+```
+
+```{r}
+fit3=Arima(log(ts_Adj.Close), order=c(0,1,7)) # order selected by acf and pacf plot
+summary(fit3)
+```
+
+The equation of the model ARIMA(1,1,3) is
+$(1-0.9278B)(1-B)x_t=(1+0.9924B-0.1186B^2+0.1049B^3)$
+
+6. Do a full model diagnostic for your chosen model. Use all the plots to describe about the residuals.
+```{r}
+sarima(ts_Adj.Close,1,1,3)
+#Inspection of the time plot of the standardized residuals above shows no obvious patterns.
+
+# The ACF of the standardized residuals shows no apparent departure from the model assumption, no significant lags shown.
+
+#The normal Q-Q plot  of the residuals shows that the assumption of normality is reasonable, with the exception of the possible outliers.
+
+#However, the p-value is less than 0.05 then the residuals are independent which we want for the model to be incorrect. A significant p-value in this test rejects the null hypothesis that the time series isn’t autocorrelated.
+```
+7. Use auto.arima() to fit an ARIMA(p,d,q) for the above dataset in part (b). Is it different from your chosen model? If so, why do you think is the reason?
+
+```{r}
+fit4=auto.arima(log(ts_Adj.Close)) #0,1,0
+summary(fit4)
+# It is same as the model chosen according to BIC but different from the model chosen according to AIC.
+```
+
+```{r}
+sarima(ts_Adj.Close,0,1,0)
+# The p value is 0.4549 (greater than 0.05) then the residuals are independent which we want for the model to be correct. So I would choose the model ARIMA(0,1,0)
+```
+8. Forecast using the models you obtain in part 5 with a confidence band. Plot the forecasts and comment according to the problem.
+```{r}
+#forecasting
+autoplot(forecast(fit1))
+```
+
+```{r}
+sarima.for(log(ts_Adj.Close),20,1,1,3)
+```
+
+9. Compare your ARIMA model with all the benchmark methods. What do you observe? (Here please use accuracy metrics and data vizes(graphs/plots) to compare)
+```{r}
+fit_arima<-Arima(ts_Adj.Close,order = c(0,1,0), include.drift = TRUE) #ARIMA model
+fit_mean<-meanf(ts_Adj.Close) #Average method
+fit_naive<-naive(ts_Adj.Close) #Naive method
+fit_drift<-rwf(ts_Adj.Close) #Drift method
+fit_snaive<-snaive(ts_Adj.Close) #Seasonal naïve method
+compare<-rbind(accuracy(fit_arima),accuracy(fit_mean),accuracy(fit_naive),accuracy(fit_drift),accuracy(fit_snaive))
+row.names(compare) <- c("ARIMA", "Average method","Naive method","Drift method","Seasonal naïve method")
+compare
+```
+
+```{r}
+autoplot(ts_Adj.Close, series = "Historical Data") +
+  autolayer(forecast(fit_arima,50), series="ARIMA model", PI=F) +
+  autolayer(forecast(fit_mean,50), series="Average method", PI=F) +
+  autolayer(forecast(fit_naive,50), series="Naive method", PI=F) +
+  autolayer(forecast(fit_drift,50), series="Drift method", PI=F) +
+  autolayer(forecast(fit_snaive,50), series="Seasonal naïve method", PI=F) +
+  xlab("Year") + ylab("Adjusted Close Stock Price") +
+  ggtitle("Benchmark Stork Forecast of Booking Adjusted Close Stock Price") +
+  guides(colour=guide_legend(title="Forecast and historical data"))
+```

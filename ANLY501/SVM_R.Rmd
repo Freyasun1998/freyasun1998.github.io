@@ -1,0 +1,152 @@
+---
+title: "SVM"
+author: "Jieyi Sun"
+date: "2021/11/21"
+output: html_document
+---
+```{r}
+library(e1071)  # for machine learning methods
+#install.packages("mlr")
+library(mlr)
+# install.packages("caret")
+library(caret)
+#install.packages("naivebayes")
+library(naivebayes)
+library(datasets)
+library(ggplot2)
+library(MASS)  
+```
+
+```{r}
+setwd("E:/GU/501/NB_SVM")
+## Read in the dataset
+DataFile="SVMdata.csv"
+head(DF<-read.csv(DataFile))
+```
+```{r}
+plot(DF)
+qplot(DF$Insulin,DF$BMI,data = DF,color=DF$Outcome)
+```
+
+```{r}
+## MAKE test and train data
+str(DF)
+(Size <- (as.integer(nrow(DF)/4)))  ## Test will be 1/4 of the data
+(SAMPLE <- sample(nrow(DF), Size, replace = FALSE))
+
+(DF_Test<-DF[SAMPLE, ])
+(DF_Train<-DF[-SAMPLE, ])
+## REMOVE the labels and KEEP THEM
+########### REMOVE AND SAVE LABELS...
+## Copy the Labels
+(DF_Test_Labels <- DF_Test$Outcome)
+## Remove the labels
+DF_Test_NL<-DF_Test[ , -which(names(DF_Test) %in% c("Outcome"))]
+## Check size
+(ncol(DF_Test_NL))
+## Train...--------------------------------
+## Copy the Labels
+(DF_Train_Labels <- DF_Train$Outcome)
+## Remove the labels
+DF_Train_NL<-DF_Train[ , -which(names(DF_Train) %in% c("Outcome"))]
+## Check size
+(ncol(DF_Train_NL))
+```
+
+```{r}
+## Polynomial Kernel...
+poly_svm_accuracy=c()
+for(degree in seq(0,4,0.5)){
+  SVM_fit_P <-svm(Outcome~.,data=DF_Train,kernel='polynomial',type='C-classification',degree=degree)
+  pred_P <- predict(SVM_fit_P, DF_Test_NL)
+  poly_svm_accuracy<-c(poly_svm_accuracy,sum(DF_Test$Outcome==pred_P)/length(pred_P))
+}
+
+plot(seq(0,4,0.5),poly_svm_accuracy,'l',xlab='Degree',main='Poly Degree-Accuracy')
+
+```
+
+```{r}
+##from the graph we can see that accuracy is the highest when degree=0.5
+SVM_fit_P <- svm(Outcome~., data=DF_Train, 
+               kernel="polynomial", type='C-classification',degree=0.5)
+
+##Prediction --
+(pred_P <- predict(SVM_fit_P, DF_Test_NL, type="class"))
+##Accuracy
+poly_svm_accuracy<-sum(DF_Test$Outcome==pred_P)/length(pred_P)
+poly_svm_accuracy
+```
+
+```{r}
+## Confusion Matrix
+library(pheatmap)
+CM1 <- table(DF_Test_Labels,pred_P)
+original_count<-table(DF_Test_Labels)
+for (i in 1:nrow(CM1)) {CM1[i,]=CM1[i,]/original_count[i]}
+pheatmap(CM1,cluster_cols=F,cluster_rows=F,display_numbers=T,number_format = "%.2f",legend=F,main='Confusion Matrix-Polynominal SVM')
+```
+
+```{r}
+## Linear Kernel...
+linear_svm_accuracy=c()
+for(coef0 in seq(0,4,0.5)){
+  SVM_fit_L <-svm(Outcome~.,data=DF_Train,kernel='linear',type='C-classification',coef0=coef0)
+  pred_L <- predict(SVM_fit_L, DF_Test_NL)
+  linear_svm_accuracy<-c(linear_svm_accuracy,sum(DF_Test$Outcome==pred_L)/length(pred_L))
+}
+
+plot(seq(0,4,0.5),linear_svm_accuracy,'l',xlab='Coef0',main='Linear coef0-Accuracy')
+
+```
+
+```{r}
+##from the graph we can see that linear accuracy remains the same at all Coef0
+SVM_fit_L <- svm(Outcome~., data=DF_Train, 
+               kernel="linear", type='C-classification',coef0=2)
+##Prediction --
+(pred_L <- predict(SVM_fit_L, DF_Test_NL, type="class"))
+##Accuracy
+linear_svm_accuracy<-sum(DF_Test$Outcome==pred_L)/length(pred_L)
+linear_svm_accuracy
+```
+
+```{r}
+##Confusion Matrix
+CM2 <- table(DF_Test_Labels,pred_L)
+original_count<-table(DF_Test_Labels)
+for (i in 1:nrow(CM2)) {CM2[i,]=CM2[i,]/original_count[i]}
+pheatmap(CM2,cluster_cols=F,cluster_rows=F,display_numbers=T,number_format = "%.2f",legend=F,main='Confusion Matrix-Linear SVM')
+```
+```{r}
+## Fit Sigmoid_Svm...
+sig_svm_accuracy=c()
+for(gamma in seq(0,1,0.2)){
+  SVM_fit_S <-svm(Outcome~.,data=DF_Train,kernel='sigmoid',type='C-classification',gamma=gamma)
+  pred_S <- predict(SVM_fit_S, DF_Test_NL)
+  sig_svm_accuracy<-c(sig_svm_accuracy,sum(DF_Test$Outcome==pred_S)/length(pred_S))
+}
+
+plot(seq(0,1,0.2),sig_svm_accuracy,'l',xlab='gamma',main='Sigmoid gamma-Accuracy')
+
+```
+
+
+
+```{r}
+
+SVM_fit_S<-svm(Outcome~.,data = DF_Train, kernel='sigmoid',type='C-classification',gamma=0.6)
+##Prediction --
+(pred_S <- predict(SVM_fit_S, DF_Test_NL, type="class"))
+##Accuracy
+sigmoid_svm_accuracy<-sum(DF_Test$Outcome==pred_S)/length(pred_S)
+sigmoid_svm_accuracy
+```
+
+```{r}
+##Confusion Matrix
+CM3 <- table(DF_Test_Labels,pred_S)
+original_count<-table(DF_Test_Labels)
+for (i in 1:nrow(CM3)) {CM3[i,]=CM3[i,]/original_count[i]}
+pheatmap(CM3,cluster_cols=F,cluster_rows=F,display_numbers=T,number_format = "%.2f",legend=F,main='Confusion Matrix-Sigmoid SVM')
+```

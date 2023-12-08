@@ -1,0 +1,42 @@
+---
+title: "DataVisggplot"
+author: "Jieyi Sun"
+date: "2/10/2022"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(forecast)
+library(astsa) 
+library(xts)
+library(tseries)
+library(fpp2)
+library(fma)
+library(lubridate)
+library(tidyverse)
+library(TSstudio)
+library(quantmod)
+library(tidyquant)
+library(plotly)
+library(ggplot2)
+```
+
+```{r}
+India<-read.csv("StatewiseTestingDetails.csv")
+India$Positive_rate<-India$Positive/India$TotalSamples
+head(India)
+```
+
+```{r}
+India$date<-as.Date(India$Date,"%Y-%m-%d")
+```
+
+```{r}
+p<- ggplot(India, aes(x=date)) +
+  geom_line(aes(y=Positive_rate, colour="red"))+
+ggtitle("Covid-19 Positive rate in India")
+
+ggplotly(p)
+```

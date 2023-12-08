@@ -1,0 +1,369 @@
+<html>
+<head>
+
+
+<style>
+
+body {
+	font-family:verdana;
+    
+    background-image: ;
+    background-color:#FFF8DC;
+
+}
+
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #00CED1;
+    max-width:1357px;
+}
+
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 15px 15px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: DarkSeaGreen;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 150px;
+    
+    
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    
+}
+
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: .6;
+}
+
+td {
+    padding: 5px;
+    text-align: left;
+    width: 500px;
+}
+
+tr{
+   padding: 0px;
+   text-align: top;
+   background-color:#ffffff
+}
+
+img:hover {
+  opacity: .8;
+}
+
+</style>
+
+
+
+</head>
+
+
+<body>
+
+
+
+<ul>
+    <li><a href="./ANLY501/About Me.html">About Me</a></li>
+  <li><a href="./ANLY501/Introduction.html">Introduction</a></li>
+  
+  <li class="dropdown">
+    <a href="./ANLY501/Data Gathering.html">Data Gathering</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+  
+  <li class="dropdown">
+    <a href="./ANLY501/Data Cleaning.html">Data Cleaning</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+  
+  
+<li class="dropdown">
+    <a href="./ANLY501/Exploring Data.html">Exploring Data</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+
+<li class="dropdown">
+    <a href="./ANLY501/Clustering.html">Clustering</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY501/ARM and Networking.html">ARM and Networking</a>
+    
+    <div class="dropdown-content">
+      
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY501/Decision Trees.html">Decision Trees</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY501/Naive Bayes.html">Naive Bayes</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY501/SVM.html">SVM</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li><a href="./ANLY501/Conclusions.html">Conclusions</a></li>
+
+<li><a href="./ANLY501/Infographic.html">Infographic</a></li>
+
+</ul>
+
+
+<h3></h3>
+<p></p>
+
+
+<table>
+   <tr>
+       
+      <td>
+       <p><strong>R part</strong></p>
+       <p>Here is the download of my R code for Naive Bayes model:</p>
+       <p><a href="./ANLY501/NB_R.R" class="download" download="NB_R.R">NB_R.R</a></p>
+       <p>Here is the download of my record data:</p>
+       <p><a href="./ANLY501/SVMdata.csv" class="download" download="Cleaned_Diabetes_Dataset.csv">Cleaned_Diabetes_Dataset.csv</a></p>
+       <p>the confusion matrix for record data in Naive Bayes model:</p>
+       <p><img src="./ANLY501/CM for record data(NB).jpg"width=558px height=324px></p>
+      
+       <p>Apriori Probability</p>
+       <p><img src="./ANLY501/NB_R_plot2.jpg"width=454px height=309px></p>
+      <p>
+          Conclusion: By looking at the confusion matrix drawn using the prediction and the test dataset, the overall accuracy is 0.766, which is good. Since our goal is to predict real patients, reducing the false negative rate is the most important when building model. In this NB model, the false negative rate is 41%,which is not good. The result tells us that only using blood pressure, insulin, BMI and Diabetes Pedigree Function as criteria can't diagnose a diabetes patient.
+          
+      </p>
+      </td>
+      <td>
+       <p>
+           <pre><code>
+               # Naive Bayes
+
+setwd("E:/GU/501/NB_SVM")
+## Read in the dataset
+DataFile="Cleaned_Diabetes_Dataset.csv"
+head(DF=ead.csv(DataFile))
+## MAKE test and train data
+str(DF)
+(Size =(as.integer(nrow(DF)/4)))  ## Test will be 1/4 of the data
+(SAMPLE = sample(nrow(DF), Size, replace = FALSE))
+
+(DF_Test=DF[SAMPLE, ])
+(DF_Train=DF[-SAMPLE, ])
+## REMOVE the labels and KEEP THEM
+########### REMOVE AND SAVE LABELS...
+## Copy the Labels
+(DF_Test_Labels = DF_Test$Outcome)
+## Remove the labels
+DF_Test_NL=DF_Test[ , -which(names(DF_Test) %in% c("Outcome"))]
+## Check size
+(ncol(DF_Test_NL))
+## Train...--------------------------------
+## Copy the Labels
+(DF_Train_Labels = DF_Train$Outcome)
+## Remove the labels
+DF_Train_NL=DF_Train[ , -which(names(DF_Train) %in% c("Outcome"))]
+## Check size
+(ncol(DF_Train_NL))
+
+#Tune model-laplace (cited by Zhaoyuan Qiu)
+Accuracy=c()
+Value_range=seq(0,1000,10)
+for(laplace in Value_range){
+  model=naiveBayes(Outcome~.,data=DF_Train,laplace=laplace)
+  prediction=predict(model,DF_Test_NL)
+  Accuracy=c(Accuracy,sum(prediction==DF_Test$Outcome)/nrow(DF_Test))
+}
+plot(Value_range,Accuracy,'l',xlab='Laplace Value')
+#Tune model-eps
+Accuracy=c()
+Value_range=seq(0,1,0.05)
+for(eps in Value_range){
+  model=naiveBayes(Outcome~.,data=DF_Train,eps=eps)
+  prediction=predict(model,DF_Test_NL)
+  Accuracy=c(Accuracy,sum(prediction==DF_Test$Outcome)/nrow(DF_Test))
+}
+plot(Value_range,Accuracy,'l',xlab='Eps Value')
+#Tune model-threshold
+Accuracy=c()
+Value_range=seq(0,200,20)
+for(threshold in Value_range){
+  model=naiveBayes(Outcome~.,data=DF_Train,threshold=threshold)
+  prediction=predict(model,DF_Test_NL)
+  Accuracy=c(Accuracy,sum(prediction==DF_Test$Outcome)/nrow(DF_Test))
+}
+plot(Value_range,Accuracy,'l',xlab='threshold value')
+#######################
+####### RUN Naive Bayes ---
+(NB=naiveBayes(DF_Train_NL, 
+                DF_Train_Labels, 
+                laplace = 1))
+
+NB_Pred = predict(NB, DF_Test_NL)
+#NB
+table(NB_Pred,DF_Test_Labels)
+#Confusion Matrix
+library(pheatmap)
+confusion_mx=NB_Pred)
+pheatmap(confusion_mx,cluster_cols=F,cluster_rows=F,display_numbers=T,number_format = "%.f",legend=F,main='Confusion Matrix')
+DF_Test['prediction']=NB_Pred
+sum(DF_Test$prediction==DF_Test$Outcome)/nrow(DF_Test)
+#The accuracy is 0.766 with the default params.
+barplot(NB$apriori/sum(NB$apriori),main = 'Apriori Probability')
+
+           </code>
+               
+           </pre>
+       </p>
+      </td>
+
+   </tr>
+<tr>
+    <td>
+        <p><strong>Python part</strong></p>
+        <p>I gathered my text data from ClinicalTrials API with 5 keywords related to diabetes and each keyword is a label in my data set.</p>
+        <p><a href=" " class="download" download="Textdataset.csv">Textdataset.csv</a ></p>
+        <p><a href=" " class="download" download="NB.py">NB.py</a ></p>
+        <p><img src="./ANLY501/Flower2.jpg"width=474px height=584px></p>
+        <p>How Var_smoothing effects accuracy:</p>
+        <p><img src="./ANLY501/NB_Py_plot1.jpg"width=398px height=282px></p>
+        <p>Apriori Probability<p>
+        <p><img src="./ANLY501/NB_Py_plot2.jpg"width=387px height=264px></p>
+        <p>Evaluate Performance</p>
+        <p>Apriori probability is based on the sample number of different labels. For this dataset, the number of different label samples are balanced. Therefore, all of the 6 labels have the same apriori probability 1/5.</p>
+        <p><img src="./ANLY501/TrainingCM_Py.jpg"width=460px height=357px></p>
+        <p><img src="./ANLY501/TestCM_Py.jpg"width=460px height=359px></p>
+        <p>Expect the frequency confusion matrix shown above, the testing accuracy is computed as 0.60, which suggest good performance on this text-classification task.</p>
+        <p>Conclusion: By evaluating performance from the test, 'Diabetes Lifestyle' and 'Diabetes Diagnosis' are relatively similar in description. From the knowledge of disease we can explain that this is because patients' lifestyle is one of the important factor influencing the diagnosis results.<p>
+        
+        </td>
+        <td>
+            <pre><code>
+            import pandas as pd
+from sklearn.metrics import confusion_matrix,classification_report,accuracy_score
+from sklearn.model_selection import train_test_split,cross_val_score
+from sklearn.preprocessing import StandardScaler
+import seaborn as sns
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.naive_bayes import GaussianNB,CategoricalNB
+
+data=pd.read_csv(r'E:\GU\501\NB_SVM\Textdataset.csv')
+
+#Scale the data
+Scaler=StandardScaler()
+data.iloc[:,:-1]=Scaler.fit_transform(data.iloc[:,:-1])
+
+#train-test split
+X_train, X_test, y_train, y_test=train_test_split(data.iloc[:,:-1],data.LABEL,stratify=data.LABEL,test_size=0.2,random_state=32)
+print(y_train.value_counts())
+print(y_test.value_counts())
+
+#Tune var_smoothing
+Accuracy=[]
+for var_smoothing in [1e-1,1e-3,1e-5,1e-7,1e-9,1e-10,1e-11]:
+    model=GaussianNB(var_smoothing=var_smoothing)
+    model.fit(X_train,y_train)
+    y_pred_test=model.predict(X_test)
+    Accuracy.append(accuracy_score(y_test,y_pred_test))
+    
+plt.plot(range(7),Accuracy)
+plt.xlabel('Var_smoothing')
+plt.ylabel('Accuracy')
+plt.xticks(range(7),labels=['1e-1','1e-3','1e-5','1e-7','1e-9','1e-10','1e-11'],rotation=90)
+plt.show()
+#CrossValidation
+model=GaussianNB()
+cv_res=cross_val_score(model,X_train,y_train,scoring='accuracy',cv=5)
+print('CV accuracy:',np.mean(cv_res))
+#CV accuracy: 0.375
+
+model=GaussianNB()
+model.fit(X_train,y_train)
+y_pred_train=model.predict(X_train)
+print("Train"+classification_report(y_train,y_pred_train))
+
+y_pred_test=model.predict(X_test)
+print("Test"+classification_report(y_test,y_pred_test))
+
+labels=y_train.unique()
+cm=pd.DataFrame(confusion_matrix(y_train,y_pred_train,labels=labels),index=labels,columns=labels)
+sns.heatmap(cm,vmin=0,vmax=10,annot=True,cmap='Blues',cbar=False)
+plt.title('Training Confusion Matrix')
+plt.show()
+
+cm=pd.DataFrame(confusion_matrix(y_test,y_pred_test,labels=labels),index=labels,columns=labels)
+sns.heatmap(cm,vmin=0,vmax=10,annot=True,cmap='Oranges',cbar=False)
+plt.title('Test Confusion Matrix')
+plt.show()
+
+plt.bar(x=y_train.unique(),height=model.class_prior_,color="orange")
+plt.axhline(y=model.class_prior_[0],color='red',linestyle='dashed')
+plt.text(-1.25,model.class_prior_[0],round(model.class_prior_[0],2))
+plt.title('Prior_Prob of Labels')
+plt.show()
+</code></pre>
+            </td>
+    </tr>
+ 
+   
+</table>
+
+
+</body>
+</html>

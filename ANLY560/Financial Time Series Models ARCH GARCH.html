@@ -1,0 +1,253 @@
+<html>
+<head>
+
+
+<style>
+
+body {
+	font-family:verdana;
+    
+    background-image: ;
+    background-color:#FFF8DC;
+
+}
+
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #00CED1;
+    max-width:1357px;
+}
+
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 15px 15px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: DarkSeaGreen;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 150px;
+    
+    
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    
+}
+
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: .6;
+}
+
+td {
+    padding: 5px;
+    text-align: left;
+    width: 500px;
+}
+
+tr{
+   padding: 0px;
+   text-align: top;
+   background-color:#ffffff
+}
+
+img:hover {
+  opacity: .8;
+}
+
+</style>
+
+
+
+</head>
+
+
+<body>
+
+
+
+<ul>
+    
+  <li><a href="./ANLY560/About Me.html">About Me</a></li>
+  
+  <li class="dropdown">
+  <li><a href="./ANLY560/Introduction.html">Introduction</a></li>
+  
+  <li class="dropdown">
+    <a href="./ANLY560/Data Sources.html">Data Sources</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+  
+  <li class="dropdown">
+    <a href="./ANLY560/Data Visualization.html">Data Visualization</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+  
+  
+<li class="dropdown">
+    <a href="./ANLY560/Exploratory Data Analysis.html">Exploratory Data Analysis</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+
+<li class="dropdown">
+    <a href="./ANLY560/ARIMA_Model.html">ARMA/ARIMA/SARIMA Models</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY560/Spectral Analysis and Filtering.html">Spectral Analysis and Filtering</a>
+    
+    <div class="dropdown-content">
+      
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY560/Financial Time Series Models ARCH GARCH.html">Financial Time Series Models (ARCH GARCH)</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY560/Deep Learning for TS.html">Deep Learning for TS</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY560/Conclusions.html">Conclusions</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+</ul>
+
+
+<table>
+   <tr>
+      <td>
+       <br><font color=#0779AB size = "4"> In this part, I will analyze stationarity and volatility of the adjusted close price of three travel agencies by fitting appropriate AR+ARCH/ARMA+GARCH or ARIMA-ARCH/GARCH for the returns data. 
+      
+      </td>
+       
+      <td>
+       <p><font color=#0779AB size = "4">
+       <a href="./ANLY560/garch.html" class="download" download="garch.html">Download R code</a>
+       <p><font color=#0779AB size = "4">
+       <a href="./ANLY560/Adj.Close.csv
+" class="download" download="Adj.Close.csv
+">Download Adjusted Stock Price Data of three travel agencies</a>
+       
+      </td>
+   </tr>
+   
+   <tr>
+       <td>
+           <br><img src="./ANLY560/return.jpg
+"width=737px height=478px>
+           </td>
+          <td>
+              <br><font color=#0779AB size = "4"> A return is the change in price of an asset, investment, or project over time, which may be represented in terms of price change or percentage change. The return plots of three companies all showed that volatility is not constant. GARCH model may be applied to the log return of Adjusted Price.
+              </td>
+       </tr>
+       
+    <tr>
+        <td>
+            <br><img src="./ANLY560/ACFreturn.jpg
+"width=689px height=478px>
+<br><font color=#0779AB size = "4"> The ACF of return plot shows the stationary of the data since most of the lags are within the boundary line.
+            </td>
+            <td>
+                <br><img src="./ANLY560/PACFreturn.jpg
+"width=689px height=463px>
+<br><font color=#0779AB size = "4">On PACF plots, Partial autocorrelation spikes decrease rapidly. Then I did Augmented Dickey-Fuller Tests on the return data. For the three companies, the p-values are all 0.01 which are smaller than 0.05 significance level. So the null hypothesis should be rejected which means the return of these three companies is stationary.
+                </td>
+        </tr>
+        <tr>
+            <td>
+                <br><img src="./ANLY560/ABNBresidue.jpg"width=725px height=489px>
+                <br><font color=#0779AB size = "4"> ARCH test residues of ABNB 
+                </td>
+                <td>
+                <br><img src="./ANLY560/BKNGresidue.jpg"width=725px height=489px>
+                <br><font color=#0779AB size = "4"> ARCH test residues of BKNG
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br><img src="./ANLY560/EXPEresidue.jpg"width=727px height=477px>
+                <br><font color=#0779AB size = "4"> ARCH test residues of EXPE
+            </td>
+            <td>
+                <br><font color=#0779AB size = "4"> I fit these three timeseries data into proper ARIMA models. ABNB: ARIMA(0,1,0), BKNG: ARIMA (0,1,0), EXPE: ARIMA(1,1,0). Then I got residues from ARIMA models and performed ARCH test on residues. For each timeseries, the squared residual, ACF of squared residual, and PACF of squared residual are plotted.
+            </td>
+            </tr>
+        <tr>
+            <td>
+                <br><img src="./ANLY560/equationarch.jpg"width=537px height=504px>
+            </td>
+            <td>
+                <br><font color=#0779AB size = "4"> I fit proper ARIMA models and got AIC values for model evaluation. Then I fit the best GARCH model for each timeseries. The coefficient for the equation can be obtained from the summary of ARIMA and GARCH models.
+                <br>ABNB: ARIMA(0,1,0)+GARCH(1,1)
+                <br>BKNG: ARIMA(0,1,0)+GARCH(1,1)
+                <br>EXPE: ARIMA(1,1,0)+GARCH(1,1)
+            </td>    
+            </tr>
+        <tr>
+            <td>
+                <br><img src="./ANLY560/pred.jpg"width=697px height=452px>
+            </td>
+            <td>
+            <br><font color=#0779AB size = "4"> The plot shows the prediction by ARIMA(0,1,0)+GARCH(1,1), including the prediction in the future 5 days.
+            </td>
+        </tr>    
+
+</table>
+
+
+
+
+</body>
+</html>

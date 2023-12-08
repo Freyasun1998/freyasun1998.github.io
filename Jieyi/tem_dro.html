@@ -1,0 +1,544 @@
+<html>
+<head>
+<title>ANLY503-Group Project</title>
+
+<style>
+
+<!-- default font style-->      
+body {
+	font-family: "Helvetica";
+	min-width:1000px;
+}
+
+.p {
+	font-size: 16px;
+	font-family: "Lucida Family";
+	line-height: 2em;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	color: #000;
+	padding-right:100px;
+	padding-left:100px;
+}
+.question {
+	font-size: 16px;
+	font-family: "Georgia";
+	line-height: 2em;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	color: #000;
+	padding-right:80px;
+	padding-left:100px;
+}
+
+.members {
+	font-size: 16px;
+	font-family: "Serif";
+	line-height: 2em;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	color: #000;
+	padding-right:80px;
+	padding-left:100px;
+}
+
+.q {
+	text-align: right;
+	vertical-align: middle;
+	color: black;
+}
+
+<!-- header-->     
+.headerLogo{
+  top:-65px;
+  height:110px;
+  line-height:150px;
+  overflow:hidden;
+}
+
+
+
+.dropbtn {
+            background-color: white;
+            text-align: center;
+            display: inline-block;
+            font-family:Georgia;
+            color: #041E42;
+            padding: 15px;
+            font-size: 85%;
+            border: none;
+        }
+.dropdown {
+            display: inline-block;
+        }
+.dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 460px;
+        }
+.dropdown-content a {
+            color: #041E42;
+            padding: 10px 16px;
+            text-decoration: none;
+            font-size: 80%;
+            display: block;
+            text-align: left;
+            font-family:Georgia;
+        }
+.dropdown-content a:hover {
+            background-color: #29405E ;
+            color:white;
+            text-decoration: underline;
+        }
+
+.dropdown:hover .dropdown-content {
+            display: block;
+           
+        }
+
+.dropdown:hover .dropbtn {
+            background-color: #041E42 ;
+            color:white;
+            text-decoration: underline;
+        }
+        
+
+
+
+<!-- table default style-->      
+td {
+    
+    font-family:Tw Cen MT;
+    padding: 5px;
+    text-align: left;
+}
+
+tr{
+   padding: 0px;
+   text-align: top;
+   background-color:#ffffff
+}
+
+</style>
+
+
+
+</head>
+
+<STYLE>A {text-decoration: none;} 
+</STYLE>
+
+<body>
+
+<div align="center">
+    <img src="https://evelynwang.georgetown.domains/images/Georgetown-seal.jpg"
+        alt="Georgetown Logo"
+        style="width:180px"
+        title="Georgetown University">
+</div>
+
+<table align="center">
+<tr><td height="17"></td></tr></table>
+<hr/>
+
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><b><i style="font-size:2.0vw">
+    Temperature change and its impacts: A study of the drought phenomenon</i></b> </p></div>
+<div class="members"><p style="text-align:justify; text-justify:inter-ideograph;"><i style="font-size:1.0vw">
+    Group members: Evelyn Wang (jw1924), Jieqian Liu (jl2750), Jieyi Sun (js4958), Yutong Du (yd210)</i></p></div>
+    
+<div align="center">
+<img src="./Jieyi/images/markus-spiske-RXQhffGWPTQ-unsplash.jpeg" style="width:1250px" align="center"></div>
+
+<table align="center">
+<tr><td height="17"></td></tr></table>
+<hr/>
+
+
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><b><i style="font-size:1.6vw">
+    1. Introduction</i></b> </p></div>
+    
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+    Temperature is a fundamental measurement for describing the climate, and the temperature in particular places can have wide-ranging effects on human life and ecosystems. For example, increases in air temperature can lead to more intense heat waves, which can cause illness and death, especially in vulnerable populations. Annual and seasonal temperature patterns also determine the types of animals and plants that can survive in particular locations. Changes in temperature can disrupt a wide range of natural processes, particularly if these changes occur more quickly than plant and animal species can adapt. Concentrations of heat-trapping greenhouse gases are increasing in the Earth's atmosphere. In response, average temperatures at the Earth's surface are increasing and are expected to continue rising. Because climate change can shift the wind patterns and ocean currents that drive the world's climate system, some areas are warming more than others, and some have experienced cooling.</p></div>
+
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+However, regarding the existence of climate change, some say climate change is the biggest threat of our age while others say it's a myth based on dodgy science. We are turning some of the data over to you so you can form your own view.
+</p></div>
+
+<div align="center">
+<img src="./Jieyi/images/yoda-adaman-8wuOLdN77A4-unsplash.jpeg
+" style="width:1000px" align="center"></div>
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+One of the impacts of climate change that cannot be ignored is the phenomenon of drought. Drought is an event of prolonged shortages in the water supply, whether atmospheric (below-average precipitation), surface water or ground water. Throughout history, droughts are viewed as "disasters". Indicators of drought include precipitation, temperature, streamflow, ground and reservoir water levels, soil moisture, and snowpack. Temperature change increases the odds of worsening drought in many parts of the United States and the world. Severe drought can affect water supply, agriculture, transportation, energy, public health. These impacts can inflict extreme costs on people and business. In this project we are going to analyze the relationship between temperature change and drought phenomenon.</p></div>
+
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><b><i style="font-size:1.6vw">
+    2. Method</i></b> </p></div>
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><b><i style="font-size:1.4vw">
+    2.1 Data Collection & Data Cleaning</i></b> </p></div> 
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><i style="font-size:1.4vw">
+    2.1.1 Temperature Anomalies Worldwide</i></p></div> 
+    
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+    To get a general idea of global temperature change, we chose to use data offered by EPA, where information on temperature change from 1901 to the present is provided: <a href="https://www.epa.gov/sites/default/files/2021-04/temperature_fig-2_0.csv">Temperatures Worldwide</a>. There are 4 columns in this dataset:</p></div>
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+    <ul>
+  <li>Year</li>
+  <li>Earth's surface: this indicator came from weather stations on land, and observations from buoys and ships on the ocean, thereby providing data from sites spanning much of the surface of the Earth. This indicator shows annual anomalies, or differences, compared with the average temperature from 1901 to 2000. For example, an anomaly of +2.0 degrees means the average temperature was 2 degrees higher than the long-term average. Anomalies have been calculated for each weather station. Daily temperature measurements at each site were used to calculate monthly anomalies, which were then averaged to find an annual temperature anomaly for each year. Global anomalies have been determined by dividing the world into a grid, averaging the data for each cell of the grid, and then averaging the grid cells together.</li>
+  <li>Lower troposphere (measured by satellite) (UAH) & Lower troposphere (measured by satellite) (RSS): measure the lower troposphere temperature of the Earth, which is the lowest level of the Earth's atmosphere, by satellite. "UAH" and "RSS" represent two different methods of analyzing the original satellite measurements.</li>
+</ul></p></div>
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+There are several paragraphs within the dataset, so before jumping into data analysis part, we removed all the irrelevant and redundant information. Also, due to some technical restrictions, years before 1979 are marked as NAs, so we decide to drop all the missing values.</p></div>
+
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><i style="font-size:1.4vw">
+    2.1.2 Temperature Difference Between Major Cities</i></p></div> 
+    
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+    In addition to looking at climate change patterns from a global general perspective, we also refine the problem to look at temperature changes between major cities in different countries in different regions (Asia, Africa, America, Europe) to get a more multidimensional view of the climate change phenomenon.The raw dataset is offered by Kaggle, and collected from the Berkeley Earth, which is affiliated with Lawrence Berkeley National Laboratory. The Berkeley Earth Surface Temperature Study combines 1.6 billion temperature reports from 16 pre-existing archives. In order to see how the temperature varies over time in various cities around the world, we decided to look into this dataset:
+<a href="https://www.kaggle.com/datasets/berkeleyearth/climate-change-earth-surface-temperature-data">GlobalTemperaturesByCity.csv</a>. The containing columns are as following:</p></div>
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+    <ul>
+  <li>Date: starts in 1750 for average land temperature and 1850 for max and min land temperatures and global ocean and land temperatures</li>
+  <li>LandAverageTemperature: global average land temperature in celsius</li>
+  <li>City</li>
+  <li>Country</li>
+  <li>Latitude</li>
+  <li>Longitude</li>
+</ul></p></div>
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+    In the GlobalTemperaturesByCity.csv file, we date formatted the column and extract the year of each date so to group by year. Also, since it is time series data containing temperature values for different major cities in different countries, so we think an interactive animation world map might be a good choice. The original dataset only contains data for each city in each country at different times, but the continents in which the countries are located are not available, so we joined the this table with another one, named as “continents2.csv” and provided by Kaggle, which contains continents and ISO code information for each country to gain more geographic information.</p></div>
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+
+We also deep into the details of countries rank with regards to the biggest to smallest increase in temperature since 1825, by calculating the difference between maximum temperature of certain countries in certain regions and their average temperature across years.</p></div>
+
+
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><i style="font-size:1.4vw">
+    2.1.3 Temperature Anomalies in the United States</i></p></div> 
+    
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+    We decided to narrow our focus to temperature changes across the United States. Similar to the dataset in section 2.1.1, we collected: <a href="https://www.epa.gov/sites/default/files/2021-04/temperature_fig-1.csv">Temperatures in the Contiguous 48 States</a>. Same as before, this contains 4 columns, however, data gathering and how the temepratures were measured are different from the previous:</p></div>
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+    <ul>
+  <li>Year</li>
+  <li>Earth's surface: For the Contiguous 48 States dataset, this indicator came from weather stations on land. It shows annual anomalies, or differences, compared with the average temperature from 1901 to 2000. For example, an anomaly of +2.0 degrees means the average temperature was 2 degrees higher than the long-term average. Anomalies have been calculated for each weather station. Daily temperature measurements at each site were used to calculate monthly anomalies, which were then averaged to find an annual temperature anomaly for each year. Anomalies for the contiguous 48 states and Alaska have been determined by calculating average anomalies for areas within each state based on station density, interpolation, and topography. These regional anomalies are then averaged together in proportion to their area to develop national results.</li>
+  <li>Lower troposphere (measured by satellite) (UAH) & Lower troposphere (measured by satellite) (RSS): measure the lower troposphere temperature of the Earth, which is the lowest level of the Earth's atmosphere, by satellite. "UAH" and "RSS" represent two different methods of analyzing the original satellite measurements.</li>
+</ul></p></div>
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+    In the GlobalTemperaturesByCity.csv file, we date formatted the column and extract the year of each date so to group by year. Also, since it is time series data containing temperature values for different major cities in different countries, so we think an interactive animation world map might be a good choice. The original dataset only contains data for each city in each country at different times, but the continents in which the countries are located are not available, so we joined the this table with another one, named as “continents2.csv” and provided by Kaggle, which contains continents and ISO code information for each country to gain more geographic information.</p></div>
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+There are several paragraphs within the dataset, so likewise we removed all the irrelevant and redundant information. Also, due to some technical restrictions, years before 1979 are marked as NAs, so we decide to drop all the missing values.</p></div>
+
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><i style="font-size:1.4vw">
+    2.1.4 Temperature Changes for Each of States in the U.S.</i></p></div> 
+    
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+    Going a step further, we decided to look deeply into the horizontal view of temperature change estimates for each of the Lower 48 states in the U.S. This dataset is gathered from <a href="https://github.com/washingtonpost/data-2C-beyond-the-limit-usa">Temperatures in the Contiguous 48 States</a> and how the temepratures changes are represented by:</p></div>
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+    <ul>
+  <li>State_Name</li>
+  <li>Annual:  Estimate of annual average temperature change in Celsius for the state, 1895-2019</li>
+  <li>Fall: temperature change in September, October and November</li>
+  <li>Spring: temperature change in March, April and May</li>
+  <li>Summer: temperature change in June, July and August</li>
+  <li>Winter: temperature change in December and the following January and February</li></ul></p></div>
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+Those data came from the National Oceanic and Atmospheric Administration's Climate Divisional Database as well as Precipitation Dataset datasets provided by the Washington Post, which provide monthly temperature data between 1895 and 2019 for the Lower 48 states. This dataset calculated annual mean temperature trends in each state and county in the Lower 48 using linear regression - analyzing both annual average temperatures and temperatures for the three-month season, which is used to analyze the temperatures changes for each of season in the US.</p></div>
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><i style="font-size:1.4vw">
+    2.1.5 Drought Area of Six Degrees in U.S.</i></p></div> 
+    
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+    Apart from looking into the existence of global warming, we decided to look into its effect. We focus on the sub-topic: drought, trying to figure out if this correlates with the temperature change and its severity. Specifically, we can explore the extreme weather resulting in drought in different areas in the US.</p></div>
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+    The drought dataset is gathered from <a href="https://droughtmonitor.unl.edu/DmData/DataDownload/ComprehensiveStatistics.aspx">Comprehensive Statistics | US Drought Monitor</a>. They offer weekly-updated drought data for the contiguous U.S. In our project, we generated three datasets with the start date from 01/01/2000 to 02/10/2022. The first dataset is with national scale, percent area, cumulative data. The second dataset is with state scale, percent area, cumulative data. The third dataset is with national scale, total area, cumulative data.</p></div>
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+According to US Drought Monitor, serenity is categorized as None (Not Drought), D0 (Abnormally Drought), D1 (Moderately Drought), D2 (Severe Drought), D3 (Extremely Drought), D4 (Exceptionally Drought), corresponding to 5 columns in the datasets. The 'AreaOfInterest' column is 'conus' means using for the continental U.S. only. And the 'StatisticFormatID' column is all equal to 1 means we use cumulative statistics type. These columns would not be used in our visualization and analysis.</p></div>
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+For the national percent area of six drought degrees data, we were only interested in the national percent area of six drought degrees in recent five years, so we picked the first 214 rows of the data set with national scale, percent area, cumulative data 'percent_drought.csv' (for further details of resukts, go to 'Results' section).</p></div>
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+For the national total area of six drought degrees data, we grouped them with year and calculated to see the annual average area in different drought degrees in America which is shown in `drought_temp_tree_bar.R`. Then we are going to use the produced data set which is `drought_total.csv` to do the plot in the following part.</p></div>
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+We combined the dataset containing the temperature change from 1895 to 2019 in 48 states and the dataset containing drought area percentage from 2000 to 2022 together to plot the linked maps. The first dataset 'model_state.csv' has four columns showing the temperature change of 48 states in four seasons: spring, summer, fall and winter. We converted these four columns into two columns: temperature and season. The season names were converted to the label of each row. We separated the date in the second dataset 'drought_state.csv' into 'year', 'month', 'day'. Then each row was labeled with season name according to the month. Aggregate function was used for calculating the average value of no drought area percentage in 48 states. Then the two datasets were joined by the abbreviation of state names and season names.</p></div>
+
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><b><i style="font-size:1.4vw">
+    2.2 Design choices</i></b> </p></div> 
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><i style="font-size:1.4vw">
+    2.2.1 Barplots for the Earth's Surface Temperature Anomalies</i></p></div> 
+    
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+    As mentioned, the temperature anomalies datesets contain time series data from 1901 to 2020, and since this indicator/this column represents temperature differences, compared with the average temperature from 1901 to 2000, therefore, we decided to use a bar chart and color-coded the years above the 220-year average and the years below the 220-year average. Specifically, the years above the average represent a year with a higher temperature comparatively and are marked in red, while the years below the average represent a year with a lower temperature compared to the overall average and are marked in blue. Thus, we can make a better visual comparison.</p></div>
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><i style="font-size:1.4vw">
+    2.2.2 Stacked Area Charts for Temperature Anomalies Measured by Satellite</i></p></div> 
+    
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+    An area chart combines the line chart and bar chart to show how one or more groups' numeric values change over the progression of a second variable, typically that of time. An area chart is distinguished from a line chart by the addition of shading between lines and a baseline, like in a bar chart. </p></div> 
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+In this case, we decide to use stacked area chart. In the overlapping area chart, each line was shaded from its vertical value to a common baseline. In the stacked area chart, lines are plotted one at a time, with the height of the most recently-plotted group serving as a moving baseline. As such, the fully-stacked height of the topmost line will correspond to the total when summing across all groups. </p></div>
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+In our case, when looking into the satellite measurements, there are different methods: "UAH" and "RSS". Since we do not have a clear perception of the advantages and disadvantages of these two measures, both of them are going to be used as references for our problem analysis. We intended to take the average value for them, but considering the fact that the difference between these two indicators are quite small so if we take the mean value for them, points or lines maybe overlap between each other. In view of the above reasons, we decided to use two area charts to representing satellite measurements for the whole world and the United States. </p></div>
+
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><i style="font-size:1.4vw">
+    2.2.3 Geographical Map for Temperature Difference Between Major Cities Across Time</i></p></div> 
+    
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+    The dataset for temperature difference between major cities is time series data, so we think an interactive animation world map might be a good choice. In this case, we used the extracted year column as a navigator bar, so readers can drag the bar to see the temperature differences between cities at given years. The annual average temperature of a specific city for a given year is encoded as the size of a bubble, and the center of the bubble is located according to the laptitude and longitude. Also, we made color distinctions for the four continents. </p></div> 
+
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><i style="font-size:1.4vw">
+    2.2.4 Horizontal Bar for Major city Climate Change Values from Low to High</i></p></div> 
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+    The dataset for temperature difference between major cities is time series data, so we think an interactive animation world map might be a good choice. In this case, we used the extracted year column as a navigator bar, so readers can drag the bar to see the temperature differences between cities at given years. The annual average temperature of a specific city for a given year is encoded as the size of a bubble, and the center of the bubble is located according to the laptitude and longitude. Also, we made color distinctions for the four continents. </p></div> 
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+By calculating the difference between maximum temperature of certain countries in certain regions and their average temperature across years, we ranked the cities on each continent according to the difference in temperature, from largest to smallest, and the different continents are distinguished by different colors.</p></div> 
+
+
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><i style="font-size:1.4vw">
+    2.2.5 Violin Plot for Temperature Change of the US for Each of Season</i></p></div> 
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+A violin plot consists of the median value of temperature change of the US for each of season; the upper and lower quartiles, which represent the numbers above and below the highest and lower quarters of the data and the minimum and maximum temperature change in each season. The violin plot can display more details by using hover funcion. Compared with plain boxplot, the violin plot shows the full distribution of the data. It provides an effective way of viewing and a clear summary for the temperature change in each season, as well as easily shows outliers of temperature change in each season. </p></div> 
+
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><i style="font-size:1.4vw">
+    2.2.6 Choropleth for Temperature Change for the Lower 48 States</i></p></div> 
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+Because the data has many regions, a choropleth map can be a lot less crowded than other chart types, and is useful for reports that have data in many states and allows people to see a particular state in more detail as well as show the horizontal comparison for the annual temperature change for each of the Lower 48 states. Specifically, it can display the annual temperature change for each of the lower states geographically, furthermore to explain some changes in a larger region instead of states level. The color represents the states with different annual temperature changes and the hover displays the temperature change in each season of this state.</p></div> 
+
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><i style="font-size:1.4vw">
+2.2.7 Drought Area for Different Degrees in US</i></p></div> 
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+A pie chart was designed for the total area of six drought degrees, from which we would have an overview of the ratio of drought area for each drought degree.</p></div> 
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+A line chart was designed for the percent area of six drought degrees over time, so that we could easily find the periods when the drought problems become severe and how long it exists. Thus, we can see if there is something happens at that time or maybe we can figure out the problems.</p></div> 
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+A group of linked histograms were designed for showing the frequency distribution of six drought degrees in recent five years(2018-2022).</p></div> 
+
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><i style="font-size:1.4vw">
+2.2.8 The Relationship Between Drought Area and Temperature Change in US</i></p></div> 
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+In order to see whether the global warming causes the drought phenomenon to be more severe and frequently, we plan to design two dashboards to show the temperature in Fahrenheit and the total area for different drought degrees. In the first dashboard, a tree map showing the distribution of drought degrees and a bar chart showing annual average temperature are linked by year. In the second dashboard, two American maps are linked by 48 states to show the relationship between temperature change and drought area distribution in 48 states.</p></div> 
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+The first dashboard is designed to see whether the temperature is higher, the total area of higher drought degrees will also increase. Because the drought phenomenon and global warming is more severe in recent years, we would choose the period from 2000 to 2020 to see the possible cumulative power of temperature rising. The second dashboard is designed to see whether the drought area distribution nowadays has relationship with the average temperature increase over the 124 years.</p></div> 
+
+
+
+
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><b><i style="font-size:1.4vw">
+    2.3 Reflections</i></b> </p></div> 
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+We originally intended to present the satellite observations of the troposphere in the same graph as the Earth's surface data, but we found this to be detrimental to readability. So unlike the initial version, we plotted the satellite observation data separately.</p></div>
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+We added a new dataset mentioned in 2.1.2 section, which lloks inot the temperatures for the major cities around the world. The reason why we added this is becasue we found the Temperature Anomalies Worldwide dataset is too broad, by only giving us a general idea of the temperature anomalies across over two centuries without considering regional differences. So we expand this question to explore the phenomenon with a finer temporal dimension and a finer geographical dimension.</p></div>
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+A violin plot is added to show the temperature change of each state in the US for each of season with using an original dataset. The new plot provides a new dimension, season, to analyze the temperature changes in the US, and it can reflect the warming temperature more detailed and impressive than only using geographical variables.</p></div> 
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+We replaced the bar chart showing total drought area in recent five years with a group of linked histograms showing the frequency distribution of all drought degrees. The original bar chart can only reflect the total drought area for each year from which we cannot see the count and value of drought area in different degrees. Each histogram represents one drought degree, containing their area percent value and the count for each area percent value.</p></div> 
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+We also added two dashboards for answering how climate change will affect the drought phenomenon. The first dashboards can help us to see the distribution of total area for the six drought degrees and the earth's surface temperature with different measure methods from 2000 to 2020. We can see during different periods, how climate change and drought can interacted each other. Firstly, we use plotly in R to create the linked tree chart and bar chart. However, the size for tree chart are always 100% with default frame and overlapped bar chart. We try to fix it with methods on Internet, but it didn't work. So we have no idea but to use Tableau to do this plotting. Additionally, we add the linked American maps to see the geographical relationship for temperature change and average percent area of drought. We hope to verify how the temperature is related to the drought and if there is anything we can notice.
+</p></div>
+
+
+
+
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><b><i style="font-size:1.6vw">
+    3. Results</i></b> </p></div>
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><b><i style="font-size:1.4vw">
+    3.1 Temperatures Worldwide</i></b> </p></div> 
+
+
+<div align="center"><p><iframe src="./Jieyi/images/temperture_world.html" width="95%" height="500px"></iframe></p></div>
+<div align="center"<div class="p"><b>
+    Fig 1: Temperatures Worldwide</b></p></div>
+    
+    
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+Worldwide, 2016 was the warmest year on record, 2020 was the second-warmest, and 2011-2020 was the warmest decade on record since thermometer-based observations began. Global average surface temperature has risen at an average rate of 0.17<span>&#8457;</span> per decade since 1901, similar to the rate of warming within the contiguous 48 states. </p></div>
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+As for the temperatures taken by satellite, the trends obtained from the RSS and UAH measurements are consistent. Also, from a worldwide perspective, since 1979, all the following years have temperatures of the lower troposphere of the Earth higher than long-term average. Though from 1979 to 1993, the satellite measurements for the contiguous US states fluctuate across time, since 1994, the measurements have been above 0.</p></div>
+
+<div align="center"><p><iframe src="./Jieyi/images/area_world_satellite.html" width="80%" height="500px"></iframe></p></div>
+
+<div align="center"<div class="p"><b>
+    Fig 2: Lower Troposphere Temperature, 1978-2020, Worldwide</b></p></div>
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+By taking 1977 as a dividing line and calculating the number of years with anomalies higher than 0 and lower than 0, using the stacked bar plot, we can see that after 1977, the proportion of years that have anomalies higher than 0, which means that the absolute value of temperature is higher than the long-term average, is way bigger than before 1977. </p></div>
+<div align="center"><p><iframe src="./Jieyi/images/world_stack_bar_plot.html" width="60%" height="600px"></iframe></p></div>
+<div align="center"<div class="p"><b>
+    Fig 3: The Earth's Surface Temperature Statistics Before and After 1977, worldwide</b></p></div>
+
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><b><i style="font-size:1.4vw">
+    3.2 Temperature Difference Between Major Cities</i></b> </p></div> 
+
+<div align="center"><p><iframe src="./Jieyi/images/bubble_world_map.html" width="70%" height="500px"></iframe></p></div>
+<div align="center"<div class="p"><b>
+    Fig 4: Global Land Temperatures By City</b></p></div>
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+First years have some fluctuations due to absence of data for some nations, but the biggest increases are visible in Europe, South America and West Asia.</p></div>
+
+    
+<div align="center"><p><iframe src="./Jieyi/images/temperature_difference.html" width="60%" height="500px"></iframe></p></div>
+
+<div align="center"<div class="p"><b>
+    Fig 5: Difference in Temperature (Countries)</b></p></div>
+    
+
+
+
+    
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+As we look into the rank of cities for temperature change range, we found this interesting:</p></div>
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+    <ul>
+  <li>Brazil and Argentina: BIG deforestation issues (their wildfires have increased big time and the agriculture is the main factor)</li>
+  <li>Kazakhstan: place for testing biological and nuclear weapons by the soviets. Also, here are located the most polluting industries. Most of their water is infected by industrial and agricultural runoff and it is in some places radioactivity.
+  <a href="http://factsanddetails.com/central-asia/Kazakhstan/sub8_4f/entry-4681.html">
+    <img border="0" src="https://evelynwang.georgetown.domains/images/icon.png" title="Details"  style="width:25px" align="center"></a></li>
+<li>Turkmenistan: Desertification and drying of the Aral Sea, due to HEAVY agricultural practices.<a href="https://en.wikipedia.org/wiki/Environmental_issues_in_Turkmenistan">
+    <img border="0" src="https://evelynwang.georgetown.domains/images/icon.png" title="Details"  style="width:25px" align="center"></a></li>
+<li>Nepal- Air Pollution: 1 in 10 Nepalese suffer from chronic lung problem, and the life expectancy of a new born is shorter by 2 years due solely to problems air quality related.<a href="https://www.nepalitimes.com/here-now/air-pollution-is-more-dangerous-than-smoking/">
+    <img border="0" src="https://evelynwang.georgetown.domains/images/icon.png" title="Details"  style="width:25px" align="center"></a></li></ul></p>
+</div>
+
+
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><b><i style="font-size:1.4vw">
+    3.3 Temperatures in the United States</i></b> </p></div> 
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+Since 1901, the average surface temperature across the contiguous 48 states has risen at an average rate of 0.16°F per decade (see above bar plot). Average temperatures have risen more quickly since the late 1970s (0.31 to 0.54<span>&#8457;</span> per decade since 1979). Eight of the top 10 warmest years on record for the contiguous 48 states have occurred since 1998, and 2012 and 2016 were the two warmest years on record.</p></div> 
+
+<div align="center"><p><iframe src="./Jieyi/images/temperture_us.html" width="95%" height="500px"></iframe></p></div>
+<div align="center"<div class="p"><b>
+    Fig 6: Temperatures in the Contiguous 48 States, 1901-2020</b></p></div>
+    
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+As for the temperatures taken by satellite, the trends obtained from the RSS and UAH measurements are consistent. From 1979 to 1993, the satellite measurements for the contiguous US states fluctuate across time, since 1994, the measurements have been above 0.</p></div>
+
+<div align="center"><p><iframe src="./Jieyi/images/area_us_satellite.html" width="80%" height="500px"></iframe></p></div>
+
+<div align="center"<div class="p"><b>
+    Fig 7: Lower Troposphere Temperature, 1978-2020, US</b></p></div>
+    
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+By taking 1977 as a dividing line and calculating the number of years with anomalies higher than 0 and lower than 0, using the stacked bar plot, we can see that after 1977, the proportion of years that have anomalies higher than 0, which means that the absolute value of temperature is higher than the long-term average, is way bigger than before 1977. </p></div>
+
+<div align="center"><p><iframe src="./Jieyi/images/us_stack_bar_plot.html" width="60%" height="600px"></iframe></p></div>
+<div align="center"<div class="p"><b>
+    Fig 8: The Earth's Surface Temperature Statistics Before and After 1977, US</b></p></div>
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+So, from both worldwide and US nationwide perspectives, we have indirectly proved that the global warming phenomenon does exist.</p></div>
+
+
+
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><b><i style="font-size:1.4vw">
+    3.4 Temperature Change of Each State in the US for Each Season
+</i></b> </p></div> 
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+This violin plot shows the temperature change of eash state in the US for each of season.</p></div> 
+<div align="center"><p><iframe src="./Jieyi/images/boxplot.html" width="70%" height="500px"></iframe></p></div>
+<div align="center"<div class="p"><b>
+    Fig 9: Temperature Change of the US for Each of Season, 1985-2019</b></p></div>
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+Based on the Fig.9, the temperature changes for every season of most states are more than zero, winter temperatures showed the greatest change, with an average increase of 3.67 degrees Celsius, while autumn temperatures showed the smallest change, with an increase of 0.79 degrees Celsius. In addition, Most of states have 0-1.5 degrees Celsius temperature increase in Spring, Summer, and Fall, but have 1.1-2.5 degrees Celsius temperature increase in Winter.</p></div> 
+
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><b><i style="font-size:1.4vw">
+3.5 The Ratio of Total Area for Six Drought Degrees</i></b> </p></div> 
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+Here we can have a brief overview of the ratio of not drought areas and drought areas in different degrees from 2000 to 2022.</p></div> 
+
+<div align="center"><p><iframe src="./Jieyi/images/piechart.html" width="40%" height="500px"></iframe></p></div>
+<div align="center"<div class="p"><b>
+    Fig 10: Total Area of Different Drought Levels from 2000 to 2022</b></p></div>
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+Not drought areas and abnormally drought areas make up 1/3 respectively.From moderate drought to exceptional drought, the area percentage decreases as the drought degree goes up. </p></div>
+
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><b><i style="font-size:1.4vw">
+3.6 The Percent Area for Drought Degrees over Time</i></b> </p></div> 
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+Here we are going to look at the change of percent drought areas over time and so we can compare difference period for these five drought degrees.</p></div> 
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+We can click the legend on the right to hide or not see this drought degree change. Also, we can use the range slider to select the range of date we want to know from 2000 to 2022.</p></div> 
+<div align="center"><p><iframe src="./Jieyi/images/drought_timeseries.html" width="80%" height="600px"></iframe></p></div>
+<div align="center"<div class="p"><b>
+    Fig 11: Percentage of Areas for All Drought Degrees in US</b></p></div>
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+As we can see, the lines representing the change of percent area for drought degrees has the same trend which has a reverse direction to the percent of area which is not dry. The percent area is inversely corresponding to the drought degrees that the lower drought degree is more common. Although most of them continue to fluctuate within a certain range, but it seems that the range of volatility is expanding.</p></div>
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+From the perspective of data changes, the drought problems become severe in some periods: from Jan 2001 to Sep 2002, from Jun 2010 to Nov 2012, from May 2017 to Aug 2018, from Jul 2019 to now. It is obviously that in these periods, the percent area of none decreases a lot and the percent area of all kinds of drought degree increases. Most of these drought phenomenon happened in summer, but some drought phenomenon persisted for a long time and some of them are short-lived. It means periods of drought span across many months, as once you are in a drought with deeper degrees, it seems much difficult to get out. According to the frequency of drastic changes, we can conclude that the drought problems are becoming more and more frequent, especially in these ten years.</p></div>
+
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><b><i style="font-size:1.4vw">
+3.7 The Frequency Statistics for None Drought Area Percent and Drought Area Percent</p></div> 
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+The linked histograms show the frequency distribution of each drought degree in the recent 5 years (2018-2022). The drought area counts distribution of 2018 and 2019 are almost the same. The moderately and exceptionally dry area percentage have a distinct increase from 2020 to 2021. The percentage of not dry area concentrated around 50% in 2018. It increased to 75% in 2019 but declined to 35% till 2021.</p></div>
+<div align="center"><p><iframe src="./Jieyi/images/linked_hists.html" width="80%" height="700px"></iframe></p></div>
+<div align="center"<div class="p"><b>
+    Fig 12: Frequency Distribution of Each Drought Degree in Past 5 Years </b></p></div>
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><b><i style="font-size:1.4vw">
+3.8 The Relationship between Total Drought Area and Temperature Change in US</p></div> 
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+The first dashboard shows whether the temperature increases along with drought phenomenon, especially those periods with huge changes in percent of drought areas we got above.</p></div>
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+Moving the time slider in the plot, we can verify that the period we observed in the Fig.13 is when the total area of drought increases. At that point, degree D0 which means abnormally dry occupied in the majority of areas in US. Besides, we can observe the similar change for temperature - it also increases. </p></div>
+<div align="center">
+<div class='tableauPlaceholder' id='viz1651988224354' style='position: relative'><noscript><a href=' '>< img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Dr&#47;Drought_Temp_2&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a ></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Drought_Temp_2&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Dr&#47;Drought_Temp_2&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1651988224354');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='530px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script></p></div>
+<div align="center"<div class="p"><b>
+    Fig 13: Drought and Temperature Change from 2000 to 2020 </b></p></div>
+    
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+We think this plot is innovative in our project because we use tree chart to not only show the rough percentage for drought degrees but also can see the total area change over time. We can use it to combine the temperature change in order to have an overview of the interaction among global warming and drought phenomenon. It makes it clear to see the severe consequence of highly increased temperature and gives a different angle to see the problem.</p></div>
+
+<div align="center"><p><iframe src="./Jieyi/images/model_state_map.html" width="80%" height="600px"></iframe></p></div>
+<div align="center"<div class="p"><b>
+    Fig 14: Temperature Change for Lower 48 States </b></p></div>
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+The second dashboard (Fig.15) shows whether the nowadays drought phenomenon has relationship with the temperature change after Industrial Revolution.</p></div>
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+By selecting different seasons, we found that in winter and spring the average temperature of northern states has more dramatic increase than southern states from 1895 to 2019. However, in the recent two decades, the southwest states are suffering more from drought over the four seasons. The drought area in the eastern part are much less than the western part. </p></div>
+<div align="center"><p>
+<div class='tableauPlaceholder' id='viz1651987474857' style='position: relative'><noscript><a href=' '>< img alt='仪表板 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Dr&#47;Drought_Temp&#47;1&#47;1_rss.png' style='border: none' /></a ></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Drought_Temp&#47;1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Dr&#47;Drought_Temp&#47;1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1651987474857');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='827px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script></p></div>
+
+<div align="center"<div class="p"><b>
+    Fig 15: Drought and Temperature Change in 48 States </b></p></div>
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><b><i style="font-size:1.6vw">
+    4. Discussion</i></b> </p></div>
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><b><i style="font-size:1.4vw">
+    4.1 Global Warming and Temperature Change in US</i></b> </p></div>
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+Recall that in the previous Fig.1, since 1977, the temperature anomaly has been above 0, meaning that it has been above the overall average for each of these years, and at the same time, the temperature anomaly is basically increasing, so we have global evidence of warming, and it is getting worse!</p></div>
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+And to refine this issue, comparing the values of temperature changes in recent years for different countries and cities in different regions of the world, we find that the countries and cities with the strongest temperature changes, i.e. the largest temperature differences, seem to be mainly clustered in the Asian region (see Fig.5).</p></div>
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+Based on the results of Fig.14, most states are experiencing warming, especially in winter. Actually, it can lead to one of the negative effects of global warming. Overwintering crops will start to grow because of false signals of early warming, but if there is a sudden drop in temperature, those crops will freeze altogether. And regional differences between warmer states could be due to differences in the amount of fossil fuels burned, which is one of the main causes of global warming. Therefore, advocating environmental protection and low-carbon economy, taking actions to deal with climate change, and promoting policies that will protect those most vulnerable to climate change impacts are important cornerstones of everyone's climate work.</p></div>
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><b><i style="font-size:1.4vw">
+    4.2 Drought Phenomenon in US</i></b> </p></div>
+
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+The drought phenomenon in US especially in the western is much severe and may keep a long time. Just in the past few weeks, 45.01% of the U.S. and 53.77% of the lower 48 states are in drought.</p></div>
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+From the Fig.13, we can find that sometimes the drought may happen after the temperature rises. It make sense that just the cumulative impact of temperature changes will lead to drought. For example, sometimes the low temperature in the last year may lead to a low annual degree of drought. In some areas, droughts can persist through a vicious cycle, in which very dry soils and diminished plant cover absorb more solar radiation and heat up, encouraging the formation of high pressure systems that further suppress rainfall, leading an already dry area to become even drier (<a href="https://www.c2es.org/content/drought-and-climate-change/">Reference)</a>. So because of the continuous global warming, its impact especially the drought happen more frequently and more severe. The damage of drought has already affect some people's life and cause more serious consequence in US. For example, the agriculture of US suffered by drought a lot and it eventually has an impact to our economy. Regions such as the U.S. Southwest, where droughts are expected to get more frequent, intense, and longer lasting, are at particular risk. For northern part, the temperature increase would lead to many environmental problems including the raise of sea level. The thawed ice may make many animals lose their habitat. For southern part, the temperature increase the level and area of drought places The drought phenomenon would put more area under the threat of desertification.</p></div>
+
+
+<div class="question"><p style="text-align:justify; text-justify:inter-ideograph;"><b><i style="font-size:1.6vw">
+    5. Conclusion</i></b> </p></div>
+<div class="p"><p style="text-align:justify; text-justify:inter-ideograph;">
+Warmer temperatures enhance evaporation, which reduces surface water and dries out soils and vegetation. This makes periods with low precipitation drier than they would be in cooler conditions. These visualizations show that warming increases precipitation variability. Extreme precipitation always goes with drought. More periods of drought increase the amount of carbon dioxide in the atmosphere, which would reduce the amount of vegetation storing carbon dioxide and increase the average temperature in return. So we can conclude that temperature change and drought phenomenon are cause and result to each other.</p></div>    

@@ -1,0 +1,175 @@
+---
+title: "discussion5"
+author: "Jieyi Sun"
+date: "2021/10/31"
+output: html_document
+---
+```{r}
+## LIBRARIES
+library(rpart)   ## FOR Decision Trees
+library(rattle)  ## FOR Decision Tree Vis
+library(rpart.plot)
+library(RColorBrewer)
+library(Cairo)
+library(network)
+library(ggplot2)
+##If you install from the source....
+#Sys.setenv(NOAWT=TRUE)
+## ONCE: install.packages("wordcloud")
+library(wordcloud)
+## ONCE: install.packages("tm")
+
+library(slam)
+library(quanteda)
+## ONCE: install.packages("quanteda")
+## Note - this includes SnowballC
+#library(SnowballC)
+
+library(proxy)
+## ONCE: if needed:  install.packages("stringr")
+library(stringr)
+## ONCE: install.packages("textmineR")
+library(textmineR)
+library(igraph)
+library(caret)
+#library(lsa)
+```
+
+```{r}
+MyPath="E:/GU/501/DT/"
+RecordDatasetName="DTdata.csv"
+setwd(MyPath)
+RecordDF_A<-read.csv(RecordDatasetName, stringsAsFactors=TRUE)
+head(RecordDF_A)
+```
+
+```{r}
+## While we do this - let's check data types
+str(RecordDF_A)
+RecordDF_A$Outcome<-as.factor(RecordDF_A$Outcome)
+## We MUST convert the label (called Outcome) into type FACTOR!
+## If you do not do this, your modeling will not work as well 
+## (or at all)
+## I did this above using stringsAsFactors=TRUE
+## Our data is already clean and it is MIXED data. I will not normalize it.
+
+```
+```{r}
+## Simple tables
+
+apply(RecordDF_A, 2, table)  # 2 means columns
+
+```
+```{r}
+## Define the function on any dataframe input x
+GoPlot <- function(x) {
+  
+  G <-ggplot(data=RecordDF_A, aes(.data[[x]], y="") ) +
+  geom_bar(stat="identity", aes(fill =.data[[x]])) 
+  
+  return(G)
+}
+## Use the function in lappy
+lapply(names(RecordDF_A), function(x) GoPlot(x))
+
+```
+
+```{r}
+## Next - split into TRAIN and TEST data
+(DataSize=nrow(RecordDF_A)) ## how many rows?
+(TrainingSet_Size<-floor(DataSize*(3/4))) ## Size for training set
+(TestSet_Size <- DataSize - TrainingSet_Size) ## Size for testing set
+
+```
+
+```{r}
+set.seed(1234)
+## This is the sample of row numbers
+(MyTrainSample <- sample(nrow(RecordDF_A),
+                                    TrainingSet_Size,replace=FALSE))
+## Use the sample of row numbers to grab those rows only from
+## the dataframe....
+(MyTrainingSET <- RecordDF_A[MyTrainSample,])
+table(MyTrainingSET$Outcome)
+## Use the NOT those row numbers (called -) to get the
+## other row numbers not in the training to use to create
+## the test set.
+## Training and Testing datasets MUST be disjoint. Why?
+(MyTestSET <- RecordDF_A[-MyTrainSample,])
+table(MyTestSET$Outcome)
+##Make sure your Training and Testing datasets are BALANCED
+
+```
+
+```{r}
+## REMOVE THE LABELS from the test set and keep them
+################################################
+(TestKnownLabels <- MyTestSET$Outcome)
+(MyTestSET <- MyTestSET[ , -which(names(MyTestSET) %in% c("Outcome"))])
+```
+
+
+##     Decision Trees
+```{r}
+##      First - train the model with your training data
+##
+##      Second - test the model - get predictions - compare
+##               to the known labels you have.
+MyTrainingSET
+str(MyTrainingSET)
+```
+
+```{r}
+## This code uses rpart to create decision tree
+## Here, the ~ .  means to train using all data variables
+## The MyTrainingSET#label tells it what the label is called
+## In this dataset, the label is called "Outcome".
+#I build DT1 using the default classification which is GINI.
+DT1 <- rpart(MyTrainingSET$Outcome ~ ., data = MyTrainingSET, method="class")
+summary(DT1)
+## DT---------------------------------
+(DT_Prediction1= predict(DT1, MyTestSET, type="class"))
+## Confusion Matrix
+table(DT_Prediction1,TestKnownLabels) ## to make a confusion matrix
+## VIS..................
+fancyRpartPlot(DT1)
+```
+
+```{r}
+DT2<- rpart(Outcome ~ Insulin, data = MyTrainingSET, method="class")
+summary(DT2)
+(DT_Prediction2= predict(DT2, MyTestSET, type="class"))
+table(DT_Prediction2,TestKnownLabels) ## one way to make a confu mat
+fancyRpartPlot(DT2)
+
+```
+```{r}
+DT3 <- rpart(Outcome ~ BloodPressure+Insulin, data = MyTrainingSET, method="class", parms = list(split="information"),minsplit=2)
+summary(DT3)
+(DT_Prediction3= predict(DT3, MyTestSET, type="class"))
+table(DT_Prediction3,TestKnownLabels) ## one way to make a confu mat
+fancyRpartPlot(DT3)
+```
+
+
+```{r}
+#top features
+importance1 <- data.frame(important_index1=DT1$variable.importance)
+importance1$feature <- row.names(importance1)
+row.names(importance1) <- NULL
+importance1 <- sort(importance1,decreasing = TRUE)
+ggplot(importance1, 
+       aes(y = important_index1, x = feature)) +
+  geom_bar(stat = "identity", fill = "lightblue", colour = "black")
+```
+
+```{r}
+importance2 <- data.frame(important_index2=DT2$variable.importance)
+importance2$feature <- row.names(importance2)
+row.names(importance2) <- NULL
+importance2 <- sort(importance2,decreasing = TRUE)
+ggplot(importance2, 
+       aes(y = important_index2, x = feature)) +
+  geom_bar(stat = "identity", fill = "lightblue", colour = "black")
+
+```

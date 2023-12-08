@@ -1,0 +1,270 @@
+<html>
+<head>
+
+
+<style>
+
+body {
+	font-family:verdana;
+    
+    background-image: ;
+    background-color:#FFF8DC;
+
+}
+
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #00CED1;
+    max-width:1357px;
+}
+
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: left;
+    padding: 15px 15px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: DarkSeaGreen;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 150px;
+    
+    
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    
+}
+
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: .6;
+}
+
+td {
+    padding: 5px;
+    text-align: left;
+    width: 500px;
+}
+
+tr{
+   padding: 0px;
+   text-align: top;
+   background-color:#ffffff
+}
+
+img:hover {
+  opacity: .8;
+}
+
+</style>
+
+
+
+</head>
+
+
+<body>
+
+
+
+<ul>
+    <li><a href="./ANLY501/About Me.html">About Me</a></li>
+  <li><a href="./ANLY501/Introduction.html">Introduction</a></li>
+  
+  <li class="dropdown">
+    <a href="./ANLY501/Data Gathering.html">Data Gathering</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+  
+  <li class="dropdown">
+    <a href="./ANLY501/Data Cleaning.html">Data Cleaning</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+  
+  
+<li class="dropdown">
+    <a href="./ANLY501/Exploring Data.html">Exploring Data</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+
+<li class="dropdown">
+    <a href="./ANLY501/Clustering.html">Clustering</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY501/ARM and Networking.html">ARM and Networking</a>
+    
+    <div class="dropdown-content">
+      
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY501/Decision Trees.html">Decision Trees</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY501/Naive Bayes.html">Naive Bayes</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY501/SVM.html">SVM</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li><a href="./ANLY501/Conclusions.html">Conclusions</a></li>
+
+<li><a href="./ANLY501/Infographic.html">Infographic</a></li>
+
+</ul>
+
+<table>
+    <tr>
+        <td>
+            
+<p><font color=#17A7E7 size = "4"><strong>I found that some absent data is represent with 0. Instead of deleting those rows with absent data, I replaced the absent data with median value of those valid data. Here are the download links for R programs and cleaned data:</strong></p>
+    <a href="./ANLY501/CleaningDataR.R" class="download" download="CleaningDataR.R">Data Cleaning.r</a>
+<a href="./ANLY501/Cleaned_Diabetes_Dataset.csv" download="Cleaned_Diabetes_Dataset.csv" class="download">Cleaned Diabetes Dataset.csv</a>
+<p>Here is R code used to clean diabetes dataset.</p></font>
+<pre><code class="language-R">
+   library(ggplot2)
+library(plotly)
+setwd("E:/GU/501/data")
+df=read.csv("diabetes-dataset.csv")
+#Remove the columns we don not want
+df=df[,-1]
+#Make tables of all the columns
+lapply(df, table)
+lapply(df,summary)
+#Replace all the 0 value in the variables with NA
+Outcome=df$Outcome
+df_variable=df[,-8]
+df_variable[df_variable==0]=NA
+df1=data.frame(df_variable,Outcome)
+#Replace NA value of the variables with Median values
+lapply(df1, summary)
+df1$Glucose[is.na(df1$Glucose)]=117
+df1$BloodPressure[is.na(df1$BloodPressure)]=72.0
+df1$SkinThickness[is.na(df1$SkinThickness)]=29.00
+df1$Insulin[is.na(df1$Insulin)]=126.00
+df1$BMI[is.na(df1$BMI)]=32.40
+df1$Age=as.numeric(df1$Age)
+write.csv(df1,"Cleaned_Diabetes_Dataset.csv")
+
+</code></pre>
+</td>
+<td>
+<p>Let's have a look at the raw Diabetes Dataset</p>
+<img src="./ANLY501/P14.jpg" width="640" height="360"/>
+<p>Let's have a look at the data after cleaning</p>
+<img src="./ANLY501/P15.jpg" width="640" height="360"/>
+</td>
+</tr>
+<tr>
+    <td>
+<p><font color=#17A7E7 size = "4"><strong>For the news data, I cleaned it up using CountVectorizer with input "content" and get a labeled cleaned dataset. Here are the download links for Python programs and data:</strong></p>
+    <a href="./ANLY501/NewsDataCleaning.py" class="download" download="NewsDataCleaning.py">NewsDataCleaning.py</a>
+<a href="./ANLY501/MyClean_CSV_Data.csv" download="MyClean_CSV_Data.csv" class="download">MyClean_CSV_Data.csv</a>
+<p>Here is Python code used to diabetes data from News</p></font>
+<pre><code class='Python language code'>
+import pandas as pd
+import os
+import re
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
+path="E:/GU/501/data/"
+filelocation="News.csv"
+CSV_DF=pd.read_csv(path+filelocation)
+print(CSV_DF)
+My_FILE=open(path+filelocation, "r")
+for next_row in My_FILE:
+    print(next_row)
+My_FILE.close()
+My_Content_List=[]
+My_Labels_List=[]
+with open(path+filelocation, "r") as My_FILE:
+    next(My_FILE) 
+    for next_row in My_FILE:
+        print(next_row)
+        Row_Elements=next_row.split(",")
+        print(Row_Elements)
+        print("The label is: \n", Row_Elements[0])
+        print("\nThe review content is:\n",Row_Elements[1])
+        ## OK! Now that we know this works, we can BUILD
+        ## our lists....
+        My_Content_List.append(Row_Elements[1])
+        My_Labels_List.append(Row_Elements[0])
+## Let's see what we built....
+print(My_Content_List)
+print(My_Labels_List)
+MyCV_content=CountVectorizer(input='content',
+                        stop_words='english',
+                        #max_features=100
+                        )
+My_DTM2=MyCV_content.fit_transform(My_Content_List)
+ColNames=MyCV_content.get_feature_names()
+print("The vocab is: ", ColNames, "\n\n")
+My_DF_content=pd.DataFrame(My_DTM2.toarray(),columns=ColNames)
+print(My_DF_content)
+print(My_Labels_List)
+My_DF_content.insert(loc=0, column='LABEL', value=My_Labels_List)
+print(My_DF_content)
+My_DF_content.to_csv(path+'MyClean_CSV_Data.csv', index=False)
+</code></pre>
+</td>
+<td>
+<p>Let's have a look at the raw News data</p>
+<img src="./ANLY501/P13.jpg" width="640" height="360"/>
+<p>Let's have a look at the data after cleaning</p>
+<img src="./ANLY501/P12.jpg" width="640" height="360"/>
+</td>
+</tr>
+</body>
+</html>

@@ -1,0 +1,598 @@
+<html>
+<head>
+
+
+<style>
+
+body {
+	font-family:verdana;
+    
+    background-image: ;
+    background-color:#FFF8DC;
+
+}
+
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #00CED1;
+    max-width:1357px;
+}
+
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 15px 15px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: DarkSeaGreen;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 150px;
+    
+    
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    
+}
+
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: .6;
+}
+
+td {
+    padding: 5px;
+    text-align: left;
+    width: 500px;
+}
+
+tr{
+   padding: 0px;
+   text-align: top;
+   background-color:#ffffff
+}
+
+img:hover {
+  opacity: .8;
+}
+
+</style>
+
+
+
+</head>
+
+
+<body>
+
+
+
+<ul>
+    <li><a href="./ANLY501/About Me.html">About Me</a></li>
+  <li><a href="./ANLY501/Introduction.html">Introduction</a></li>
+  
+  <li class="dropdown">
+    <a href="./ANLY501/Data Gathering.html">Data Gathering</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+  
+  <li class="dropdown">
+    <a href="./ANLY501/Data Cleaning.html">Data Cleaning</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+  
+  
+<li class="dropdown">
+    <a href="./ANLY501/Exploring Data.html">Exploring Data</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+
+<li class="dropdown">
+    <a href="./ANLY501/Clustering.html">Clustering</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY501/ARM and Networking.html">ARM and Networking</a>
+    
+    <div class="dropdown-content">
+      
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY501/Decision Trees.html">Decision Trees</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY501/Naive Bayes.html">Naive Bayes</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY501/SVM.html">SVM</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li><a href="./ANLY501/Conclusions.html">Conclusions</a></li>
+
+<li><a href="./ANLY501/Infographic.html">Infographic</a></li>
+
+</ul>
+
+
+<h3></h3>
+<p></p>
+
+
+<table>
+   <tr>
+       
+      <td>
+       <p><img src="./ANLY501/wc1.jpg"width=320px height=180px></p>
+       <p><img src="./ANLY501/wc2.jpg"width=320px height=180px></p>
+       <p><img src="./ANLY501/wc3.jpg"width=320px height=180px></p>
+       <p><img src="./ANLY501/wc4.jpg"width=320px height=180px></p>
+       <p><img src="./ANLY501/wc5.jpg"width=320px height=180px></p>
+      </td>
+      
+      <td>
+          <p>
+           <strong>Part 1: Labeled text dataset:</strong> I gathered my text dataset from ClinicalTrials.gov API, U.S National Library of Medicine. Since my topic is diabetes, I decide to explore diabetes from five aspects: causes, diagnosis, lifestyle, medications and prevention. So I gathered my corpus according to these 5 keywords. For each keyword, I gathered 10 files and created one wordcloud. 
+       </p>
+       <p>You can download my corpus here:</p>
+       <a href="./ANLY501/Textdataset.zip
+" class="download" download="Textdataset.zip">Textdataset.zip</a>
+       <p>Here is the code used to create wordcloud for visualization:</p>
+       <a href="./ANLY501/newWordcloud.py" class="download" download="newWordcloud.py">create wordcloud</a>
+       <p>Then I converted my corpus into a labeled csv dataset. Here is the Python code for cleaning text data from a corpus with labels. (Since this part has been discussed in detail in the data cleaning section, I just put the download link of my code and the labeled result.) </p>
+       <a href="./ANLY501/Textdataset.py" class="download" download="Textdataset.py">Cleaning Text Data from the corpus with labels</a>
+       <p><img src="./ANLY501/labeled data.jpg"width=480px height=270px></p>
+       <p>You can download my labeled text dataset here:</p>
+       <p><a href="./ANLY501/Textdataset.csv" class="download" download="Textdataset.csv">Textdataset.csv</a></p>
+       
+      </td>
+   </tr>
+   <tr>
+       <td>
+           <p><strong>Decision Trees by Python for labeled text dataset</strong></p>
+           <p>First, I used the labeled text dataset to create a training data and a test data. Here is the download of the training data and test data:</p>
+           <p><a href="./ANLY501/TrainDF.csv" class="download" download="TrainDF.csv">TrainDF.csv</a></p>
+           <p><a href="./ANLY501/TestDF.csv" class="download" download="TestDF.csv">TestDF.csv</a></p>
+           <p>Then I seperate labels (remove the labels and save the labels). After doing these, we can create our decision trees! Here is the code preview before we pot the decision trees.</p>
+           <pre><code>
+               ##STEP 1   Create Training and Testing Data
+###############################################################
+## Write the dataframe to csv so you can use it later if you wish
+filename="Textdataset.csv"
+Final_News_DF_Labeled=pd.read_csv(filename)
+TrainDF, TestDF = train_test_split(Final_News_DF_Labeled, test_size=0.3)
+print(TrainDF)
+print(TestDF)
+#################################################
+## STEP 2: Separate LABELS
+#################################################
+## IMPORTANT - YOU CANNOT LEAVE LABELS ON 
+## Save labels
+### TEST ---------------------
+TestLabels=TestDF["LABEL"]
+print(TestLabels)
+TestDF = TestDF.drop(["LABEL"], axis=1)
+print(TestDF)
+### TRAIN----------------------
+TrainLabels=TrainDF["LABEL"]
+print(TrainLabels)
+## remove labels
+TrainDF = TrainDF.drop(["LABEL"], axis=1)
+TestDF.to_csv("TestDF.csv")
+TrainDF.to_csv("TrainDF.csv")
+               </code></pre>
+<p>To evaluate the decision trees, we need to calculate accuracy against the test set by creating confusion matrics for each DT.</p>
+<p><img src="./ANLY501/DT1_Py_CM.jpg"width=434px height=204px></p>
+<p>The accuracy for DT1 is: (2+4+1+5+1)/(2+4+1+5+1+1+1)=13/15</p>
+<p><img src="./ANLY501/DT2_Py_CM.jpg"width=406px height=203px></p>
+<p>The accuracy for DT1 is: (1+4+1+6+1)/(1+4+1+6+1+1+1)=13/15</p>
+<p><img src="./ANLY501/DT3_Py_CM.jpg"width=424px height=200px></p>
+<p>The accuracy for DT1 is: (1+4+1+2+1)/(1+4+1+2+1+1+4+1)=9/15</p>
+<p>Code preview for creating confusion metrics:</p>
+<pre><code>
+from sklearn import metrics
+from sklearn.metrics import classification_report
+DT_pred1=MyDT1.predict(TestDF)
+DT_pred2=MyDT2.predict(TestDF)
+DT_pred3=MyDT3.predict(TestDF)
+
+#confision matrix for DT3
+print("Prediction\n")
+print(DT_pred3)
+
+##
+    
+bn_matrix3= confusion_matrix(TestLabels, DT_pred3)
+print("\nThe confusion matrix is:")
+print(bn_matrix3)
+
+FeatureImp=MyDT3.feature_importances_   
+indices3= np.argsort(FeatureImp)[::-1]
+## print out the important features.....
+for f in range(TrainDF.shape[1]):
+    if FeatureImp[indices3[f]] > 0:
+        print("%d. feature %d (%f)" % (f + 1, indices3[f], FeatureImp[indices3[f]]))
+        print ("feature name: ", feature_names3[indices3[f]])
+
+#confision matrix for DT2
+print("Prediction\n")
+bn_matrix2= confusion_matrix(TestLabels, DT_pred2)
+print("\nThe confusion matrix is:")
+print(bn_matrix2)
+
+FeatureImp=MyDT2.feature_importances_   
+indices2= np.argsort(FeatureImp)[::-1]
+## print out the important features.....
+for f in range(TrainDF.shape[1]):
+    if FeatureImp[indices2[f]] > 0:
+        print("%d. feature %d (%f)" % (f + 1, indices2[f], FeatureImp[indices2[f]]))
+        print ("feature name: ", feature_names2[indices2[f]])
+
+#confision matrix for DT1
+print("Prediction\n")
+bn_matrix1= confusion_matrix(TestLabels, DT_pred1)
+print("\nThe confusion matrix is:")
+print(bn_matrix1)
+
+FeatureImp=MyDT1.feature_importances_   
+indices1= np.argsort(FeatureImp)[::-1]
+## print out the important features.....
+for f in range(TrainDF.shape[1]):
+    if FeatureImp[indices1[f]] > 0:
+        print("%d. feature %d (%f)" % (f + 1, indices1[f], FeatureImp[indices1[f]]))
+        print ("feature name: ", feature_names1[indices1[f]])
+    </code></pre>
+<p>Code download:</p>
+<p><a href="./ANLY501/DTPy.py" class="download" download="DTPy.py">DTPy.py</a></p>
+           </td>
+<td>
+    <p>I created three dicision trees (DT) after removing the labels. For the first DT, I chose GINI as criterion and 'best' as splitter. For the second DT, I chose Entropy as criterion and 'best' as splitter. For the third DT, I chose Entropy' as criterion and 'random' as splitter. Each node of tree shows GINI.
+        </p>
+        <p><strong>DT1:</strong></p>
+        <p><img src="./ANLY501/DT1.jpg"width=576px height=432px></p>
+        <p><strong>DT2:</strong></p>
+        <p><img src="./ANLY501/DT2.jpg"width=576px height=432px></p>
+        <p><strong>DT3:</strong></p>
+        <p><img src="./ANLY501/DT3.jpg"width=576px height=432px></p>
+        <p>The DT model gets the final classification result by classifying according to different variables. The results sorted our files very accurately.DT1 and DT2 shared the same root nodes: prevention and the same accuracy as well . As we can see, the third decision tree with different root node-obesity due to random splitter has the least accuracy. The third decision tree is therefore larger than the other two. </p>
+        <p>Code preview for creating DT:</p>
+        <pre><code>
+            ## STEP 3:  Run DT 1
+##################################################
+## Instantiate
+MyDT1=DecisionTreeClassifier(criterion='gini', ##"entropy" or "gini"
+                            splitter='best',  ## or "random" or "best"
+                            max_depth=None, 
+                            min_samples_split=2, 
+                            min_samples_leaf=1, 
+                            min_weight_fraction_leaf=0.0, 
+                            max_features=None, 
+                            random_state=None, 
+                            max_leaf_nodes=None, 
+                            min_impurity_decrease=0.0, 
+                            min_impurity_split=None, 
+                            class_weight=None)
+
+##
+MyDT1.fit(TrainDF, TrainLabels)
+
+##Visualization
+feature_names1=TrainDF.columns
+fig1=plt.figure(figsize=(40,30))
+Tree_Object1=tree.plot_tree(MyDT1,
+                            feature_names=feature_names1,
+                            class_names='LABEL',
+                            filled=True)
+fig1.savefig("DT1.png")
+
+##Run DT 2
+MyDT2=DecisionTreeClassifier(criterion='entropy', ##"entropy" or "gini"
+                            splitter='best',  ## or "random" or "best"
+                            max_depth=None, 
+                            min_samples_split=2, 
+                            min_samples_leaf=1, 
+                            min_weight_fraction_leaf=0.0, 
+                            max_features=None, 
+                            random_state=None, 
+                            max_leaf_nodes=None, 
+                            min_impurity_decrease=0.0, 
+                            min_impurity_split=None, 
+                            class_weight=None)
+
+##
+MyDT2.fit(TrainDF, TrainLabels)
+
+##Visualization
+feature_names2=TrainDF.columns
+fig2=plt.figure(figsize=(40,30))
+Tree_Object1=tree.plot_tree(MyDT2,
+                            feature_names=feature_names2,
+                            class_names='LABEL',
+                            filled=True)
+fig2.savefig("DT2.png")
+
+
+##Run DT 3
+MyDT3=DecisionTreeClassifier(criterion='entropy', ##"entropy" or "gini"
+                            splitter='random',  ## or "random" or "best"
+                            max_depth=None, 
+                            min_samples_split=2, 
+                            min_samples_leaf=1, 
+                            min_weight_fraction_leaf=0.0, 
+                            max_features=None, 
+                            random_state=None, 
+                            max_leaf_nodes=None, 
+                            min_impurity_decrease=0.0, 
+                            min_impurity_split=None, 
+                            class_weight=None)
+
+##
+MyDT3.fit(TrainDF, TrainLabels)
+
+##Visualization
+feature_names3=TrainDF.columns
+fig1=plt.figure(figsize=(40,30))
+Tree_Object1=tree.plot_tree(MyDT3,
+                            feature_names=feature_names3,
+                            class_names='LABEL',
+                            filled=True)
+fig1.savefig("DT3.png")
+
+            </code></pre>
+</td>
+</tr>
+
+
+<tr>
+    <td>
+        <p><strong>Decision Trees by R for labeled record dataset</strong></p>
+        <p>I downloaded my labeled record dataset from the Kaggle. The original dataset has 8 variables for predicting whether a patient has diabetes. In this part, I only chose 200 rows and four variables: Blood Pressure, Insulin, BMI and DiabetesPedigreeFunction to create training data and test data. The 'Outcome' is the label in this dataset. '1' represent the positive and '0' represent the negative. Here you can download my record dataset:</p>
+        <p><a href="./ANLY501/DTdata.csv" class="download" download="DTdata.csv">DTdata.csv</a></p>
+        <p>By calculating the confusion matrix, we can see the accuracy of the three trees:</p>
+        <p><img src="./ANLY501/DT1_R_CM.jpg"width=308px height=174px></p>
+        <p>Accuracy of DT1=(1+30+5)/(1+30+5+1+9+1+6)=36/53</p>
+        <p><img src="./ANLY501/DT2_R_CM.jpg"width=308px height=174px></p>
+        <p>Accuracy of DT2=(2+33+2)/(2+33+2+1+3+1+12+2)=37/55</p>
+        <p><img src="./ANLY501/DT3_R_CM.jpg"width=308px height=174px></p>
+        <p>Accuracy of DT3=(3+32+3)/(3+32+3+1+11+1+4)=38/55</p>
+        <p>These three decision trees have very similar accuracy. It is because we chosed the same classification GINI and the default cp value as 0. The only difference is the root node.</p>
+        <p>I also plot a histgram to show the feature importance of these four variables for diabetes prediction.</p>
+        <p><img src="./ANLY501/importance.jpg"width=489px height=327px></p>
+        <p>The preview of code used for feature importance:</p>
+        <pre><code>
+            #top features
+importance1 = data.frame(important_index1=DT1$variable.importance)
+importance1$feature = row.names(importance1)
+row.names(importance1) = NULL
+importance1 = sort(importance1,decreasing = TRUE)
+ggplot(importance1, 
+       aes(y = important_index1, x = feature)) +
+  geom_bar(stat = "identity", fill = "lightblue", colour = "black")
+            </code></pre>
+<p>Here you can download my R code:</p>
+<p><a href="./ANLY501/DT.Rmd" class="download" download="DT.Rmd">DT.Rmd</a></p>
+        </td>
+    <td>
+        <p>I used 3/4 size of the record dataset for training data and the remaining 1/4 for test data. After removing the labels and saving them we can create the decision trees. I created three dicision trees to train my training data. For these DT, I used default classification 'GINI'. For the first DT, I used all these four variables to train the model. For the second DT, I just used the variable 'Insulin' to train the data. For the third DT, I chose two variable 'Insulin' and 'Blood Pressure' to train the model. Here is the preview of my decision trees:</p>
+        <p><strong>DT1_R</strong><p>
+        <p><img src="./ANLY501/DT1_R.jpg"width=431px height=278px></p>
+        <p><strong>DT2_R</strong><p>
+        <p><img src="./ANLY501/DT2_R.jpg"width=442px height=283px></p>
+        <p><strong>DT3_R</strong><p>
+        <p><img src="./ANLY501/DT3_R.jpg"width=502px height=342px></p>
+        <p>Here is the R code preview:</p>
+        <pre><code>
+            library(rpart)   ## FOR Decision Trees
+library(rattle)  ## FOR Decision Tree Vis
+library(rpart.plot)
+library(RColorBrewer)
+library(Cairo)
+library(network)
+library(ggplot2)
+##If you install from the source....
+#Sys.setenv(NOAWT=TRUE)
+## ONCE: install.packages("wordcloud")
+library(wordcloud)
+## ONCE: install.packages("tm")
+
+library(slam)
+library(quanteda)
+## ONCE: install.packages("quanteda")
+## Note - this includes SnowballC
+#library(SnowballC)
+
+library(proxy)
+## ONCE: if needed:  install.packages("stringr")
+library(stringr)
+## ONCE: install.packages("textmineR")
+library(textmineR)
+library(igraph)
+library(caret)
+#library(lsa)
+MyPath="E:/GU/501/DT/"
+RecordDatasetName="DTdata.csv"
+setwd(MyPath)
+RecordDF_A=read.csv(RecordDatasetName, stringsAsFactors=TRUE)
+head(RecordDF_A)
+## While we do this - let's check data types
+str(RecordDF_A)
+RecordDF_A$Outcome=as.factor(RecordDF_A$Outcome)
+## We MUST convert the label (called Outcome) into type FACTOR!
+## If you do not do this, your modeling will not work as well 
+## (or at all)
+## I did this above using stringsAsFactors=TRUE
+## Our data is already clean and it is MIXED data. I will not normalize it.
+
+```
+```{r}
+## Simple tables
+
+apply(RecordDF_A, 2, table)  # 2 means columns
+
+```
+```{r}
+## Define the function on any dataframe input x
+GoPlot = function(x) {
+  
+  G=ggplot(data=RecordDF_A, aes(.data[[x]], y="") ) +
+  geom_bar(stat="identity", aes(fill =.data[[x]])) 
+  
+  return(G)
+}
+## Use the function in lappy
+lapply(names(RecordDF_A), function(x) GoPlot(x))
+## Next - split into TRAIN and TEST data
+(DataSize=nrow(RecordDF_A)) ## how many rows?
+(TrainingSet_Size=floor(DataSize*(3/4))) ## Size for training set
+(TestSet_Size = DataSize - TrainingSet_Size) ## Size for testing set
+set.seed(1234)
+## This is the sample of row numbers
+(MyTrainSample = sample(nrow(RecordDF_A),
+                                    TrainingSet_Size,replace=FALSE))
+## Use the sample of row numbers to grab those rows only from
+## the dataframe....
+(MyTrainingSET = RecordDF_A[MyTrainSample,])
+table(MyTrainingSET$Outcome)
+## Use the NOT those row numbers (called -) to get the
+## other row numbers not in the training to use to create
+## the test set.
+## Training and Testing datasets MUST be disjoint. Why?
+(MyTestSET = RecordDF_A[-MyTrainSample,])
+table(MyTestSET$Outcome)
+##Make sure your Training and Testing datasets are BALANCED
+## REMOVE THE LABELS from the test set and keep them
+################################################
+(TestKnownLabels = MyTestSET$Outcome)
+(MyTestSET = MyTestSET[ , -which(names(MyTestSET) %in% c("Outcome"))])
+#I build DT1 using the default classification which is GINI.
+DT1 = rpart(MyTrainingSET$Outcome ~ ., data = MyTrainingSET, method="class")
+summary(DT1)
+## DT---------------------------------
+(DT_Prediction1= predict(DT1, MyTestSET, type="class"))
+## Confusion Matrix
+table(DT_Prediction1,TestKnownLabels) ## to make a confusion matrix
+## VIS..................
+fancyRpartPlot(DT1)
+
+DT2= rpart(Outcome ~ Insulin, data = MyTrainingSET, method="class")
+summary(DT2)
+(DT_Prediction2= predict(DT2, MyTestSET, type="class"))
+table(DT_Prediction2,TestKnownLabels) ## one way to make a confu mat
+fancyRpartPlot(DT2)
+
+DT3 = rpart(Outcome ~ BloodPressure+Insulin, data = MyTrainingSET, method="class", parms = list(split="information"),minsplit=2)
+summary(DT3)
+(DT_Prediction3= predict(DT3, MyTestSET, type="class"))
+table(DT_Prediction3,TestKnownLabels) ## one way to make a confu mat
+fancyRpartPlot(DT3)
+
+            </code></pre>
+    
+        </td>
+    </tr>
+ 
+   
+</table>
+<table>
+    <tr>
+        <p><strong>Random Forest</strong></p>
+        <p>Random forests generally outperform decision trees, but their accuracy is lower than gradient boosted trees. I created random forest with python.</p>
+        <p><img src="./ANLY501/THREEtrees_RF.jpg"width=1350px height=270px></p>
+        <p><img src="./ANLY501/RF_CM.jpg"width=445px height=226px></p>
+        <p>From the confusion metrix we can calculate the accuracy of the random forest=(3+3+1+4+1)/(3+3+1+4+1+1+1+1)=12/15</p>
+        <p>Here is the preview of the code for creating random forest and it is also contained in the file of DTPy.py</p>
+        <pre><code>
+            ##############################################
+##                 Random Forest
+##
+#################################################################
+
+RF1 = RandomForestClassifier()
+RF1.fit(TrainDF, TrainLabels)
+RF1_pred=RF1.predict(TestDF)
+bn_matrix_RF = confusion_matrix(TestLabels, RF1_pred)
+print("\nThe confusion matrix is:")
+print(bn_matrix_RF)
+
+################# VIS RF---------------------------------
+Features=TrainDF.columns
+#Targets=StudentTestLabels_Num
+
+fig, axes = plt.subplots(nrows = 1,ncols = 1,figsize = (4,4), dpi=800)
+tree.plot_tree(RF1.estimators_[0],
+               feature_names = Features, 
+               #class_names=Targets,
+               filled = True)
+
+fig.savefig('RF_Tree')  ## creates png
+
+#####------------------> View estimator Trees in RF
+
+fig2, axes2 = plt.subplots(nrows = 1,ncols = 3,figsize = (10,2), dpi=900)
+for index in range(0, 3):
+    tree.plot_tree(RF1.estimators_[index],
+                   feature_names = Features, 
+                   filled = True,
+                   ax = axes2[index])
+
+    axes2[index].set_title('Estimator: ' + str(index), fontsize = 11)
+fig2.savefig('THREEtrees_RF.png')
+            </code></pre>
+<p>A decision tree is a map of the possible outcomes of a series of related choices. It allows an individual or organization to weigh possible actions against one another based on their costs, probabilities, and benefits. They can can be used either to drive informal discussion or to map out an algorithm that predicts the best choice mathematically.</p>
+<p>A decision tree typically starts with a single node, which branches into possible outcomes. Each of those outcomes leads to additional nodes, which branch off into other possibilities. This gives it a treelike shape.</p>
+    </tr>
+    <table>
+
+</body>
+</html>

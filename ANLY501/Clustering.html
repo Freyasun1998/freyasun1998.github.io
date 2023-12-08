@@ -1,0 +1,624 @@
+<html>
+<head>
+
+
+<style>
+
+body {
+	font-family:verdana;
+    
+    background-image: ;
+    background-color:#FFF8DC;
+
+}
+
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #00CED1;
+    max-width:1357px;
+}
+
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 15px 15px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: DarkSeaGreen;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 150px;
+    
+    
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    
+}
+
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: .6;
+}
+
+td {
+    padding: 5px;
+    text-align: left;
+    width: 500px;
+}
+
+tr{
+   padding: 0px;
+   text-align: top;
+   background-color:#ffffff
+}
+
+img:hover {
+  opacity: .8;
+}
+
+</style>
+
+
+
+</head>
+
+
+<body>
+
+
+
+<ul>
+    <li><a href="./ANLY501/About Me.html">About Me</a></li>
+  <li><a href="./ANLY501/Introduction.html">Introduction</a></li>
+  
+  <li class="dropdown">
+    <a href="./ANLY501/Data Gathering.html">Data Gathering</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+  
+  <li class="dropdown">
+    <a href="./ANLY501/Data Cleaning.html">Data Cleaning</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+  
+  
+<li class="dropdown">
+    <a href="./ANLY501/Exploring Data.html">Exploring Data</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+
+<li class="dropdown">
+    <a href="./ANLY501/Clustering.html">Clustering</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY501/ARM and Networking.html">ARM and Networking</a>
+    
+    <div class="dropdown-content">
+      
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY501/Decision Trees.html">Decision Trees</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY501/Naive Bayes.html">Naive Bayes</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY501/SVM.html">SVM</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li><a href="./ANLY501/Conclusions.html">Conclusions</a></li>
+
+<li><a href="./ANLY501/Infographic.html">Infographic</a></li>
+
+</ul>
+
+
+<h3></h3>
+<p></p>
+
+
+<table>
+   <tr>
+       
+      <td>
+       <p><img src="./ANLY501/wc1.jpg"width=320px height=180px></p>
+       <p><img src="./ANLY501/wc2.jpg"width=320px height=180px></p>
+       <p><img src="./ANLY501/wc3.jpg"width=320px height=180px></p>
+       <p><img src="./ANLY501/wc4.jpg"width=320px height=180px></p>
+       <p><img src="./ANLY501/wc5.jpg"width=320px height=180px></p>
+       
+      </td>
+       
+      <td>
+       <p>
+           <strong>Part 1: Clustering By Python</strong> I gathered my text dataset from ClinicalTrials.gov API, U.S National Library of Medicine. Since my topic is diabetes, I decide to explore diabetes from five aspects: causes, diagnosis, lifestyle, medications and prevention. So I gathered my corpus according to these 5 keywords. For each keyword, I gathered 10 files and created one wordcloud. 
+       </p>
+       <p>You can download my corpus here:</p>
+       <a href="./ANLY501/Textdataset.zip
+" class="download" download="Textdataset.zip">Textdataset.zip</a>
+       <p>Here is the code used to create wordcloud for visualization:</p>
+       <a href="./ANLY501/newWordcloud.py" class="download" download="newWordcloud.py">create wordcloud</a>
+       <p>Then I converted my corpus into a labeled csv dataset. Here is the Python code for cleaning text data from a corpus with labels. (Since this part has been discussed in detail in the data cleaning section, I just put the download link of my code and the labeled result.) </p>
+       <a href="./ANLY501/Textdataset.py" class="download" download="Textdataset.py">Cleaning Text Data from the corpus with labels</a>
+       <p><img src="./ANLY501/labeled data.jpg"width=480px height=270px></p>
+       
+      </td>
+   </tr>
+   <tr>
+       <td>
+           <p><img src="./ANLY501/PCA.jpg"width=480px height=480px></p>
+       </td>
+       <td>
+           <p>
+               <strong>PCA dimension reduction</strong>Perhaps the most popular technique for dimensionality reduction in machine learning is Principal Component Analysis, or PCA for short.
+           </p> 
+           <p>
+               From the clustering result we can see that medications have distinct distance from other four regions, while prevention has overlap with lifestyle, diagnosis and causes.
+           </p>
+           <pre><code>
+               import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+from mpl_toolkits.mplot3d import Axes3D
+from sklearn.cluster import KMeans
+from sklearn import datasets
+from sklearn import preprocessing
+import pylab as pl
+from sklearn import decomposition
+import seaborn as sns
+import sklearn
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+from sklearn import metrics
+from sklearn.cluster import AgglomerativeClustering
+import scipy.cluster.hierarchy as hc
+from sklearn.decomposition import PCA
+from sklearn.cluster import DBSCAN
+
+filename="Textdataset1.csv"
+smalldata=pd.read_csv(filename)
+print(type(smalldata))
+print(smalldata)
+
+# It is often best to normalize the data 
+## before applying the fit method
+## There are many normalization options
+## This is an example of using the z score
+smalldata_normalized=(smalldata - smalldata.mean()) / smalldata.std()
+print(smalldata_normalized)
+print(smalldata_normalized.shape[0])   ## num rows
+print(smalldata_normalized.shape[1])   ## num cols
+NumCols=smalldata_normalized.shape[1]
+## Instantiated my own copy of PCA
+My_pca = PCA(n_components=2)  ## I want the two prin columns
+## Transpose it
+smalldata_normalized=np.transpose(smalldata_normalized)
+My_pca.fit(smalldata_normalized)
+print(My_pca)
+print(My_pca.components_.T)
+KnownLabels=["causes", "diagnosis", "lifestyle", "medications", "prevention"]
+
+# Reformat and view results
+Comps = pd.DataFrame(My_pca.components_.T,
+                        columns=['PC%s' % _ for _ in range(2)],
+                        index=smalldata_normalized.columns
+                        )
+print(Comps)
+print(Comps.iloc[:,0])
+
+## Look at 2D PCA clusters
+############################################
+plt.figure(figsize=(12,12))
+plt.scatter(Comps.iloc[:,0], Comps.iloc[:,1], s=100, color="green")
+plt.xlabel("PC 1")
+plt.ylabel("PC 2")
+plt.title("Scatter Plot Clusters PC 1 and 2",fontsize=15)
+for i in range(1,10):
+    label="causes"
+    plt.annotate(label, (Comps.iloc[i,0], Comps.iloc[i,1]))
+for i in range(11,20):
+    label="diagnosis"
+    plt.annotate(label, (Comps.iloc[i,0], Comps.iloc[i,1]))
+for i in range(21,30):
+    label="lifestyle"
+    plt.annotate(label, (Comps.iloc[i,0], Comps.iloc[i,1]))
+for i in range(31,40):
+    label="medications"
+    plt.annotate(label, (Comps.iloc[i,0], Comps.iloc[i,1]))
+for i in range(41,50):
+    label="prevention"
+    plt.annotate(label, (Comps.iloc[i,0], Comps.iloc[i,1]))
+plt.savefig("PCA.png")
+plt.show()
+             </code></pre>
+           
+       </td>
+   </tr>
+   <tr>
+       <td>
+       <p><img src="./ANLY501/DBSCAN.jpg"width=480px height=270px></p>
+       </td>
+       <td>
+           <p><strong>DBSCAN</strong>K-Means and Hierarchical Clustering both fail in creating clusters of arbitrary shapes. They are not able to form clusters based on varying densities. That's why we need DBSCAN clustering.
+           </p>
+           <pre><code>
+               MyDBSCAN = DBSCAN(eps=0.0001, min_samples=1)
+y_pred=MyDBSCAN.fit_predict(My_pca.components_.T)
+plt.scatter(My_pca.components_.T[:, 0], My_pca.components_.T[:, 1], c=y_pred)
+plt.title("DBSCAN for reddit",fontsize=15)
+plt.savefig("dbscan.png")
+plt.show()
+            </code><pre>
+           <p>
+           </p>
+       </td>
+   </tr>
+   <tr>
+       <td>
+       <p><img src="./ANLY501/Hierarchical.jpg"width=480px height=480px></p>
+       </td>
+       <td>
+           <p><strong>Hierarchical</strong>A hierarchy can link entities either directly or indirectly, and either vertically or diagonally.
+           </p>
+           <pre><code>
+               MyHC = AgglomerativeClustering(n_clusters=5, affinity='euclidean', linkage='ward')
+FIT=MyHC.fit(smalldata)
+HC_labels = MyHC.labels_
+print(HC_labels)
+
+plt.figure(figsize =(12, 12))
+plt.title('Hierarchical Clustering')
+dendro = hc.dendrogram((hc.linkage(smalldata, method ='ward')))
+            </code><pre>
+           <p>Here is the link of Python code  used for PCA dimension reduction, DBSCAN clustering and Hierarchical drawing.
+           </p>
+           <a href="./ANLY501/PCA_DBSCAN.py" class="download" download="PCA_DBSCAN.py">PCA_DBSCAN_Hie.py</a>
+       </td>
+       
+   </tr>
+   <tr>
+       <td>
+       <p><strong>K-means Clustering</strong></p>
+       <p>Let's see the clustring matrix when k=3</p>
+       <p><img src="./ANLY501/k=3.jpg"width=725px height=161px></p>
+       <p>Let's see the clustring matrix when k=4</p>
+       <p><img src="./ANLY501/k=4.jpg"width=724px height=182px></p>
+       <p>Let's see the clustring matrix when k=5</p>
+       <p><img src="./ANLY501/k=5.jpg"width=725px height=219px></p>
+       </td>
+       <td>
+           <p>I plot the clustering result when k=4.</p>
+           <p><img src="./ANLY501/K-meansresults.jpg"width=480px height=480px></p>
+           <p>As we can see from the plot, there's almost no overlap between every two regions, so it is a good clustering. However, we still can't be sure that 4 is best value for k, and we need other methods to explore further.</p>
+           <p>Here is the code to plot k-means clustering results:</p>
+           <p><pre><code>
+               #kmeans-choose n cluster =4:
+kmeans_object_Count = sklearn.cluster.KMeans(n_clusters=4)
+
+kmeans_object_Count.fit(Comps)#We use TF-Idf here. You can also use Normal countvectorizer.
+labels = kmeans_object_Count.labels_
+prediction_kmeans = kmeans_object_Count.predict(Comps)
+#print(labels)
+print(prediction_kmeans)
+# Format results as a DataFrame
+Myresults = pd.DataFrame([Comps.index,labels]).T
+print(Myresults)
+               </code></pre>
+               
+            <p>Here is the code to use k-means clustering on the data</p>
+            <p><pre><code>
+                k = 3
+## Sklearn required you to instantiate first
+kmeans = KMeans(n_clusters=k)
+kmeans.fit(smalldata)   ## run kmeans
+labels = kmeans.labels_
+print(labels)
+centroids = kmeans.cluster_centers_
+print(centroids)
+prediction = kmeans.predict(smalldata)
+print(prediction)
+
+k = 4
+## Sklearn required you to instantiate first
+kmeans = KMeans(n_clusters=k)
+kmeans.fit(smalldata)   ## run kmeans
+labels = kmeans.labels_
+print(labels)
+centroids = kmeans.cluster_centers_
+print(centroids)
+prediction = kmeans.predict(smalldata)
+print(prediction)
+
+k = 5
+## Sklearn required you to instantiate first
+kmeans = KMeans(n_clusters=k)
+kmeans.fit(smalldata)   ## run kmeans
+labels = kmeans.labels_
+print(labels)
+centroids = kmeans.cluster_centers_
+print(centroids)
+prediction = kmeans.predict(smalldata)
+print(prediction)
+
+                </code></pre>
+           
+       </td>
+   </tr>
+   
+<tr>
+    <td>
+        <p><img src="./ANLY501/Elbow.jpg"width=480px height=270px></p>
+        <p><img src="./ANLY501/Silhouette.jpg"width=480px height=300px></p>
+    </td>
+    
+    <td>
+         <p><strong>Look at best values for k</strong></p>
+         <p>In order to determine the best value of k, I used Silhouette and Elbow two methods</p>
+        <p>From these two graphs, we can see that k=5 is best value. When k=5,the point is highest in Silhouette method and there is an inflection point in Elbow method.</p>
+        <p><pre><code>##         Look at best values for k
+##
+###################################################
+SS_dist = []
+values_for_k=range(2,9)
+#print(values_for_k)
+for k_val in values_for_k:
+    print(k_val)
+    k_means = KMeans(n_clusters=k_val)
+    model = k_means.fit(smalldata)
+    SS_dist.append(k_means.inertia_)
+    
+print(SS_dist)
+print(values_for_k)
+plt.plot(values_for_k, SS_dist, 'bx-')
+plt.xlabel('value')
+plt.ylabel('Sum of squared distances')
+plt.title('Elbow method for optimal k Choice')
+plt.show()
+####
+# Look at Silhouette
+##########################
+Sih=[]
+Cal=[]
+k_range=range(2,9)
+for k in k_range:
+    k_means_n = KMeans(n_clusters=k)
+    model = k_means_n.fit(smalldata)
+    Pred = k_means_n.predict(smalldata)
+    labels_n = k_means_n.labels_
+    R1=metrics.silhouette_score(smalldata, labels_n, metric = 'euclidean')
+    R2=metrics.calinski_harabasz_score(smalldata, labels_n)
+    Sih.append(R1)
+    Cal.append(R2)
+print(Sih) ## higher is better
+print(Cal) ## higher is better
+fig1, (ax1, ax2) = plt.subplots(nrows=2, ncols=1)
+ax1.plot(k_range,Sih)
+ax1.set_title("Silhouette")
+ax1.set_xlabel("")
+ax2.plot(k_range,Cal)
+ax2.set_title("Calinski_Harabasz_Score")
+ax2.set_xlabel("k values")
+            </code></pre>
+            <a href="./ANLY501/ClusteringPy.py" class="download" download="ClusteringPy.py">K-means.Py</a>
+<p><strong>Summary</strong></p>Silhouette and Elbow show that k=5 is the optimal number of clusters. After PCA dimension reduction, DBSCAN and K-means were used to obtain consistent results, and the result with the number of clusters 5 was stable. This result coincides with the way I gathered data: using 5 keywords related to diabetes.
+    </td>
+</tr>
+<tr>
+    <td>
+        <p><img src="./ANLY501/barplot of number of clusters.jpg"width=350px height=300px></p>
+        <p><img src="./ANLY501/number of clusters(Elbow).jpg"width=480px height=270px></p>
+        <p><img src="./ANLY501/number of clusters(Silhouette).jpg"width=480px height=270px></p>
+        
+    </td>
+    <td>
+        <p><strong>Part2: Clustering by R</strong>Here is my R code used for clustering: </p>
+        <a href="./ANLY501/RClusterNew.R" class="download" download="RClusterNew.R">RCluster.r</a>
+        <p>The dataset I gathered has 8 variable with the label: Outcome("1" represent the patient with diabetes, "0" represent the patient without diabetes)</p>
+        <p><img src="./ANLY501/dataset.jpg"width=804px height=404px></p>
+        <p>From the barplot of clusters we can see that k=2 is the best value. Further optimal number of clusters agrees that k=2 is the best.<p>
+        <p>We just pick out the first three column to proceed clustering!</p>
+        <p>Let's have a look at the code used for determine the best value of k-means:</p>
+        <pre><code>
+            library(stats)  ## for dist
+#install.packages("NbClust")
+library(NbClust)
+library(cluster)
+library(mclust)
+library(amap)  ## for Kmeans (notice the cap K)
+library(factoextra) ## for cluster vis, silhouette, etc.
+library(MAP)
+library(purrr)
+#install.packages("stylo")
+library(stylo)  ## for dist.cosine
+#install.packages("philentropy")
+library(philentropy)  ## for distance() which offers 46 metrics
+library(SnowballC)
+library(caTools)
+library(dplyr)
+library(textstem)
+library(stringr)
+library(wordcloud)
+library(tm) ## to read in corpus (text data)
+setwd("E:/GU/501/data")
+Labeledcsvdata=read.csv("Cleaned_Diabetes_Dataset.csv")
+## Save the label
+Label_csv=Labeledcsvdata$Outcome
+## Remove the label from the dataset
+## remove column 9
+csvdata=Labeledcsvdata[ ,-c(9)]
+head(csvdata)
+### Look at the pairwise distances between the vectors (rows, points)
+(Dist1=dist(csvdata, method = "minkowski", p=1)) ##Manhattan
+(Dist2=dist(csvdata, method = "minkowski", p=2)) #Euclidean
+(DistE=dist(csvdata, method = "euclidean")) #same as p = 2
+## Create a normalized version of Record_3D_DF
+(csvdata_Norm=as.data.frame(apply(csvdata[,1:3 ], 2, ##2 for col
+                                          function(x) (x - min(x))/(max(x)-min(x)))))
+## Look at scaled distances
+(Dist_norm=dist(csvdata_Norm, method = "minkowski", p=2)) #Euclidean
+## use scale in R
+csvdata_scale=scale(csvdata)
+## NbClust helps to determine the number of clusters.
+kmeans_1=NbClust::NbClust(csvdata_Norm, 
+                              min.nc=2, max.nc=5, method="kmeans")
+## How many clusters is best....let's SEE.........
+table(kmeans_1$Best.n[1,])
+
+barplot(table(kmeans_1$Best.n[1,]), 
+        xlab="Numer of Clusters", ylab="",
+        main="Number of Clusters")
+
+## Does Silhouette agree?
+fviz_nbclust(csvdata_Norm, method = "silhouette", 
+             FUN = hcut, k.max = 5)
+## Two clusters (k = 2) is likely the best. 
+# Silhouette Coefficient = (x-y)/ max(x,y)
+# y: mean in cluster
+# x: mean dist from nearest cluster
+# -1 means val in wrong cluster
+# 1 means right cluster
+
+## Elbow Method (WSS - within sum sq)
+############################# Elbow Methods ###################
+
+fviz_nbclust(
+  as.matrix(csvdata_Norm), 
+  kmeans, 
+  k.max = 5,
+  method = "wss",
+  diss = get_dist(as.matrix(csvdata_Norm), method = "manhattan")
+)
+## k means..............
+######################################
+kmeans_1_Result=kmeans(csvdata, 2, nstart=25)   
+## I could have used the normalized data - which is better to use
+## But - by using the non-norm data, the results make more visual
+## sense - which also matters.
+
+# Print the results
+print(kmeans_1_Result)
+summary(kmeans_1_Result)
+
+kmeans_1_Result$centers  
+
+aggregate(csvdata, 
+          by=list(cluster=kmeans_1_Result$cluster), mean)
+            </code></pre>
+
+    </td>
+
+</tr>
+<td>
+    <p><img src="./ANLY501/visualize the clusters in r(Euclidean).jpg"width=480px height=270px></p>
+        <p><img src="./ANLY501/visualize the clusters in r(Spearman).jpg"width=480px height=270px></p>
+        <p><img src="./ANLY501/k=2(Euclidean).jpg"width=480px height=270px></p>
+        <p><img src="./ANLY501/k=3(Euclidean).jpg"width=480px height=270px></p>
+        <p><img src="./ANLY501/k=2(Spearman).jpg"width=480px height=270px></p>
+        <p><img src="./ANLY501/k=3(Spearman).jpg"width=480px height=300px></p>
+        <p><img src="./ANLY501/Hie.jpg"width=480px height=270px></p>
+</td>
+<td>
+    <p><strong>Clustering results</strong></p>I used block scatter diagram and hierarchical respectively to show clustering results. There are four scatter graphs with two k values (k=2/k=3) and two methods.
+    <pre><code>
+        ## Place results in a tbale with the original data
+cbind(Labeledcsvdata, cluster = kmeans_1_Result$cluster)
+## See each cluster
+kmeans_1_Result$cluster
+# Cluster size
+kmeans_1_Result$size
+## Visualize the clusters
+fviz_cluster(kmeans_1_Result, csvdata, main="Spearman")
+## k = 2
+My_Kmeans_2=Kmeans(csvdata_Norm, centers=2 ,method = "spearman")
+fviz_cluster(My_Kmeans_2, csvdata, main="Spearman")
+## k= 3
+My_Kmeans_3=Kmeans(csvdata_Norm, centers=3 ,method = "spearman")
+fviz_cluster(My_Kmeans_3,csvdata, main="Spearman")
+## k = 2 with Euclidean
+My_Kmeans_E2=Kmeans(csvdata_Norm, centers=2 ,method = "Euclidean")
+fviz_cluster(My_Kmeans_E2, csvdata, main="Euclidean")
+## k = 3 with Euclidean
+My_Kmeans_E3=Kmeans(csvdata_Norm, centers=3 ,method = "euclidean")
+fviz_cluster(My_Kmeans_E3, csvdata, main="Euclidean")
+##          Hierarchical CLustering
+Dist_norm_M2=dist(csvdata_Norm, method = "minkowski", p=2) #Euclidean
+HClust_Ward_Euc_N_3D=hclust(Dist_norm_M2, method = "average" )
+plot(HClust_Ward_Euc_N_3D, cex=0.9, hang=-1, main = "Minkowski p=2 (Euclidean)")
+rect.hclust(HClust_Ward_Euc_N_3D, k=4)
+
+## Using Man with Ward.D2..............................
+dist_C = stats::dist(csvdata_Norm, method="manhattan")
+HClust_Ward_CosSim_N_3D = hclust(dist_C, method="ward.D2")
+plot(HClust_Ward_CosSim_N_3D, cex=.7, hang=-30,main = "Manhattan")
+rect.hclust(HClust_Ward_CosSim_N_3D, k=2)
+        </code></pre>
+<p>I create 3 new vectors that don't exist in the original dataset to test my clustering result. From the result we can see that vectors belong to the cluster they are close to.</p>
+<p><img src="./ANLY501/NewVectors.jpg"width=700px height=230px></p>
+<p><strong>Summary</strong>From the barplot of clusters we can see that k=2 is the best value. Further optimal number of clusters agrees that k=2 is the best and k=3 is also a good value to cluster. Then we use thesw two k value to create clustering visualization in two methods: Euclidean and Spearman.Euclidean distance between two points in Euclidean space is the length of a line segment between the two points. Spearman is a type of correlation.As the correlation coefficient value goes towards 0, the relationship between the two variables will be weaker.</p>
+
+
+</td>
+    
+<tr>
+    
+</tr>
+     
+</table>
+
+
+
+</body>
+</html>

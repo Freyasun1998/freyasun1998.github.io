@@ -1,0 +1,157 @@
+---
+title: "560-hw2-EDA"
+author: "Jieyi Sun"
+date: "2/10/2022"
+output: html_document
+---
+
+```{r}
+library(TSstudio)
+library(ggplot2)
+library(fpp)
+library(astsa)
+library(lubridate)
+library(gridExtra)
+library(tidyverse)
+library(tseries)
+library(forecast)
+library(plotly)
+
+```
+
+```{r}
+SP<-read.csv("Covid-19SG.csv") 
+SP$date<-as.Date(SP$Date,"%Y-%m-%d")
+timeserie_SP = data.frame(SP$Daily.Confirmed)
+timeserie_SP=timeserie_SP[complete.cases(timeserie_SP),]
+plot(as.ts(timeserie_SP))
+# The seasonality/periodic fluctuations can not be observed directly in this time series plot. So I will decompose the time series to see if there is seasonality/periodic.
+# There is an increase trend of the number of daily confirmed positive cases in Singapore.
+# This is a multiplicative time series.
+```
+
+```{r}
+ts_SP=ts(timeserie_SP,frequency = 12)
+decompose_SP1=decompose(ts_SP,"multiplicative")
+plot(decompose_SP1)
+```
+
+```{r}
+ts_SP2<-window(ts_SP)
+lag.plot(ts_SP2,do.lines = FALSE)
+```
+
+```{r}
+gglagplot(ts_SP2, do.lines = FALSE, lags = 1) + ggtitle("Lag plots of Daily confirmed cases in Singapore")
+```
+
+```{r}
+gglagplot(ts_SP2, do.lines = FALSE) + ggtitle("Lag plots of Daily confirmed cases in Singapore")
+```
+
+
+Here the colours indicate the month of the variable(the number of daily confirmed positive cases in Singapore). The lines connect points in chronological order. The 12 lags all show positive relationship. The relationship is relatively strongly positive in lags 1 and 2, reflecting the high correlation in the data.
+This finding is consistent to the rapid changes of daily confirmed cases in Singapore.
+
+```{r}
+par(mfrow=c(2,1))
+# ACF
+acf(ts_SP,main="ACF Plot of Daily confirmed positive Covid-19 cases in Singapore")
+# PACF
+pacf(ts_SP,main="PACF Plot of Daily confirmed positive Covid-19 cases in Singapore")
+
+```
+
+ACF Plot: ACF describes how well the present value of the series is related with its past values. All lags in the ACF plot have significant acf values, indicating the time series is not stationary.
+
+PACF Plot: The PACF plot finds correlation of the residuals. The PACF plot shows a strong relationship to the lag and a trailing off of correlation from the lag onwards. So it is good to apply Moving Average (MA) intuition to this time series data.
+
+```{r}
+# ADF test
+adf.test(ts_SP)
+```
+P-value is greater than 0.05. So obviously the series is not stationary.
+```{r}
+# Detrend the Time Series
+library(forecast)
+trend_SP = ma(ts_SP, order = 12, centre = T)
+plot(as.ts(trend_SP))
+detrend_SP=timeserie_SP/trend_SP
+plot(as.ts(detrend_SP))
+```
+
+```{r}
+#Differencing (first order and second order)
+SP_1st_df = diff(ts_SP)# 1st order difference
+SP_2nd_df = diff(ts_SP, differences = 2)
+par(mfrow=c(2,1))
+acf(SP_1st_df, main = "ACF of 1st Order Difference")
+acf(SP_2nd_df, main = "ACF of 2nd Order Difference")
+```
+
+
+
+
+```{r}
+#Generate a multifigure plots to compare detrend series with the original series. Differencing and log transformation are used for removing trend from time series data.
+p1 = autoplot(ts_SP, color = "dark green") + ylab("Daily Confirmed Cases") + ggtitle("Original Time Series Plot of Daily Confirmed Cases") + theme(plot.title=element_text(hjust = 0.5))
+
+p2 = autoplot(SP_1st_df, color = "blue" ) + ylab("Daily Confirmed Cases") + ggtitle("First Order Difference") + theme(plot.title=element_text(hjust = 0.5))
+
+p3 = autoplot(diff(log(ts_SP)), color = "orange" ) + ylab("Daily Confirmed Cases") + ggtitle("Log Transformation") + theme(plot.title=element_text(hjust = 0.5))
+
+grid.arrange(p1, p2, p3, ncol = 1)
+```
+
+The comparison among original series and detrend series:
+The First Order difference plot shows that differencing is a good method for moving trend from the time series data.
+The Log Transformation plot shows obvious stationary compared with the original time series.
+
+```{r}
+#Generate a multifigure plots to compare ACF plot after detrending the series.
+par(mfrow = c(2,2))
+acf(ts_SP, main="ACF plot of Daily Confirmed cases in SP",col="dark green")
+pacf(ts_SP, main="PACF plot of Daily Confirmed cases in SP",col="dark green")
+acf(SP_1st_df, main="ACF plot of First Order Differencing",col="red")
+pacf(SP_1st_df, main="PACF plot of First Order Differencing",col="red")
+```
+
+
+All ACF values in the original time series data are significant, indicating the time series is not stationary. The ACF plot of First Order Differencing shows that the data becomes stationary after detrending.
+
+
+
+```{r}
+adf.test(SP_1st_df)
+```
+
+```{r}
+# Moving Average in 3 Windows (in week/ month/ season)
+#MA in week (7 days)
+MA_7 <- autoplot(ts_SP, series="Daily_Confirmed") +
+        autolayer(ma(ts_SP,7), series="MA-7") +
+        xlab("Time") + ylab("Confirmed Positive Cases in SP") +
+        ggtitle("Moving Average in 7 day (week)") +
+        scale_colour_manual(values=c("Daily_Confirmed"="grey","MA-7"="red"),
+                            breaks=c("Daily_Confirmed","MA-7"))
+
+#MA in month (30 days)
+MA_30 <- autoplot(ts_SP, series="Daily_Confirmed") +
+        autolayer(ma(ts_SP,30), series="MA-30") +
+        xlab("Time") + ylab("Confirmed Positive Cases in SP") +
+        ggtitle("Moving Average in 30 days (month)") +
+        scale_colour_manual(values=c("Daily_Confirmed"="grey","MA-30"="red"),
+                            breaks=c("Daily_Confirmed","MA-30"))
+
+#MA in season (91 days)
+MA_91 <- autoplot(ts_SP, series="Daily_Confirmed") +
+        autolayer(ma(ts_SP,91), series="MA-91") +
+        xlab("Time") + ylab("Confirmed Positive Cases in SP") +
+        ggtitle("Moving Average in 91 days (season)") +
+        scale_colour_manual(values=c("Daily_Confirmed"="grey","MA-91"="red"),
+                            breaks=c("Daily_Confirmed","MA-91"))
+
+MA_7
+MA_30
+MA_91
+```

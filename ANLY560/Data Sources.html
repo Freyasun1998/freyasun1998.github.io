@@ -1,0 +1,224 @@
+<html>
+<head>
+
+
+<style>
+
+body {
+	font-family:verdana;
+    
+    background-image: ;
+    background-color:#FFF8DC;
+
+}
+
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #00CED1;
+    max-width:1357px;
+}
+
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 15px 15px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: DarkSeaGreen;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 150px;
+    
+    
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    
+}
+
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: .6;
+}
+
+td {
+    padding: 5px;
+    text-align: left;
+    width: 500px;
+}
+
+tr{
+   padding: 0px;
+   text-align: top;
+   background-color:#ffffff
+}
+
+img:hover {
+  opacity: .8;
+}
+
+</style>
+
+
+
+</head>
+
+
+<body>
+
+
+
+<ul>
+    
+  <li><a href="./ANLY560/About Me.html">About Me</a></li>
+  
+  <li class="dropdown">
+  <li><a href="./ANLY560/Introduction.html">Introduction</a></li>
+  
+  <li class="dropdown">
+    <a href="./ANLY560/Data Sources.html">Data Sources</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+  
+  <li class="dropdown">
+    <a href="./ANLY560/Data Visualization.html">Data Visualization</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+  
+  
+<li class="dropdown">
+    <a href="./ANLY560/Exploratory Data Analysis.html">Exploratory Data Analysis</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+
+<li class="dropdown">
+    <a href="./ANLY560/ARIMA_Model.html">ARMA/ARIMA/SARIMA Models</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY560/Spectral Analysis and Filtering.html">Spectral Analysis and Filtering</a>
+    
+    <div class="dropdown-content">
+      
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY560/Financial Time Series Models ARCH GARCH.html">Financial Time Series Models (ARCH GARCH)</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY560/Deep Learning for TS.html">Deep Learning for TS</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY560/Conclusions.html">Conclusions</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+</ul>
+
+
+<table>
+    <tr>
+        <td>
+            <br><img src="./ANLY560/airbnb.jpg"width=310px height=115px>
+            <br><font color=#0779AB size = "4"><a href="./ANLY560/ABNB_d.csv" class="download" download="ABNB_d.csv">Download Stock Price data of Airbnb</a>
+            </td>
+            <td>
+                <br><font color=#0779AB size = "4"> <strong> Detailed Description:</strong>
+                <br> This dataset contains daily stock price for Airbnb from Dec 11, 2020 to Feb 16 2022. It contains seven columns, including Date, Open Price, High Price, Low Price, Close Price, Adjusted Close Price and Volume Trading.
+                <br>Data Scource: Yahoo!Finance
+                </td>
+        </tr>
+   
+<tr>
+        <td>
+            <br><img src="./ANLY560/expedia.jpg"width=296px height=167px>
+            <br><font color=#0779AB size = "4"><a href="./ANLY560/EXPE_d.csv" class="download" download="EXPE_d.csv">Download Stock Price data of Expedia</a>
+            </td>
+            <td>
+                <br><font color=#0779AB size = "4"> <strong> Detailed Description:</strong>
+                <br> This dataset contains daily stock price for Expedia from Dec 11, 2020 to Feb 16 2022. It contains seven columns, including Date, Open Price, High Price, Low Price, Close Price, Adjusted Close Price and Volume Trading.
+                <br>Data Scource: Yahoo!Finance
+                </td>
+        </tr>
+
+<tr>
+        <td>
+            <br><img src="./ANLY560/booking.jpg"width=384 height=216px>
+            <br><font color=#0779AB size = "4"><a href="./ANLY560/BKNG_d.csv" class="download" download="BKNG_d.csv">Download Stock Price data of Booking
+            </td>
+            <td>
+                <br><font color=#0779AB size = "4"> <strong> Detailed Description:</strong>
+                <br> This dataset contains daily stock price for Booking
+                from Dec 11, 2020 to Feb 16 2022. It contains seven columns, including Date, Open Price, High Price, Low Price, Close Price, Adjusted Close Price and Volume Trading.
+                <br>Data Scource: Yahoo!Finance
+                </td>
+        </tr>
+
+<tr>
+        <td>
+            <br><img src="./ANLY560/Singapore.jpg"width=300 height=200px>
+            <br><a href="./ANLY560/Covid-19SG.csv" class="download" download="Covid-19SG.csv">Download Covid-19 data collected in Singapore</a>
+            </td>
+            <td>
+                <br><font color=#0779AB size = "4"> <strong> Detailed Description:</strong>
+                <br> This dataset contains daily Covid-19 cases in Singapore
+                from Jan 23, 2020 to Feb 5 2022. It contains 38 columns. The column 'Daily confirmed' would be used for analysis.
+                <br>Data Scource: data.world
+                </td>
+        </tr>
+</table>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Home</title>
+<meta charset="utf-8">
+<meta name = "format-detection" content = "telephone=no" />
+<link rel="icon" href="./Jieyi/images/favicon.ico">
+<link rel="shortcut icon" href="./Jieyi/images/favicon.ico" />
+<link rel="stylesheet" href="./Jieyi/css/animation.css">
+<link rel="stylesheet" href="./Jieyi/css/camera.css">
+<link rel="stylesheet" href="./Jieyi/css/contact-form.css">
+<link rel="stylesheet" href="./Jieyi/css/touchTouch.css">
+<link rel="stylesheet" href="./Jieyi/css/style.css">
+  <script src='//maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false'></script>
+<script src="./Jieyi/js/jquery.js"></script>
+<script src="./Jieyi/js/jquery-migrate-1.1.1.js"></script>
+<script src="./Jieyi/js/jquery.easing.1.3.js"></script>
+<script src="./Jieyi/js/script.js"></script>
+<script src="./Jieyi/js/jquery.ui.totop.js"></script>
+<script src="./Jieyi/js/touchTouch.jquery.js"></script>
+<script src="./Jieyi/js/isotope.pkgd.js"></script>
+<script src="./Jieyi/js/TMForm.js"></script>
+<script src="./Jieyi/js/modal.js"></script>
+<script src="./Jieyi/js/camera.js"></script>
+<!--[if (gt IE 9)|!(IE)]><!-->
+<script src="./Jieyi/js/jquery.mobile.customized.min.js"></script>
+<!--<![endif]-->
+<script>
+ $(window).load(function(){
+  $().UItoTop({ easingType: 'easeOutQuart' });
+  $('.gallery .gall_item').touchTouch();
+ });
+ $(document).ready(function(){
+     jQuery('#camera_wrap').camera({
+      loader: false,
+      pagination: true ,
+      minHeight: '500',
+      thumbnails: false,
+      height: '44.42708333333333%',
+      caption: true,
+      navigation: false,
+      fx: 'mosaic'
+    });
+    $('.gallery .gall-item').touchTouch();
+  });
+</script>
+<!--[if lt IE 8]>
+ <div style=' clear: both; text-align:center; position: relative;'>
+   <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+     <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+   </a>
+</div>
+<![endif]-->
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<link rel="stylesheet" media="screen" href="css/ie.css">
+<![endif]-->
+</head>
+<body>
+<div class="texture">
+<!--==============================
+              header
+=================================-->
+<header id="home" class="page">
+  <div class="navigation single-page-nav">
+    <div class="container_12">
+      <div class="grid_12">
+        <h1 class="logo">
+          
+        </h1>
+        <nav>
+          <ul>
+           <li><a href="#home" class="current">Introduction</a></li>
+           <li><a href="#dads">Data Analyst vs Data Scientist</a></li>
+           <li><a href="#elective">Elective Courses ANLY590 and ANLY591</a></li>
+           <li><a href="#dc">Top 10 Targeted Companies in DC Area</a></li>
+           <li><a href="#ca">Technology in California</a></li>
+          
+           
+         </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+<!--=====================
+          Content
+======================-->. 
+<section class="content">
+  <div class="ic"></div>
+  <div class="pad-1">
+    <div class="container_12">
+      <div class="grid_12">
+        <h2>Introduction
+          <span>The Introduction of Data Set and My Topic</span>
+          <span>Author: js4958</span>
+        </h2>
+        <img src="./mini_pro/plot/job.jpg" width="612" height="408" alt="" class="fright">
+        <div class="extra_wrapper">
+          <p>
+          <br>The dataset is the outcome of a web-crawling exercise aimed at identifying employment opportunities that could potentially interest DSAN students.
+          <br>There are roughly 85 searches, each yielding up to 10 job postings, for a total of around 850 jobs, which are currently active online, as of 04/14/2023.
+          <br>The postings were obtained using the following search query terms: "data scientist","data analyst","neural networks","big data and cloud computing","machine learning", 'reinforcement learning','deep learning', "time series","block chain","natural language processing".
+          <p>
+          <br>In this project, I analyzed four questions that many DSAN students concerned about when they plan for their career. Students are concerned about the difference of data analysts and data scientists from the aspect of skills required and years of experience required.
+          <br>The choice of elective courses is also very essential for DSAN students when planning for their career. Students interested in the field of deep learning tend to select ANLY-590 in their fall semester and ANLY-591 in their fall semester. So I chose this field to analyze job description of related positions.
+          <br>For some Gorgetown University students who are unwilling to relocate to other states, they only want to focus on companies in DC area. Besides DC area, California is also one of the best states in the US for tech jobs.
+
+          
+          <a href="./mini_pro/data/data.zip" class="btn">Download Dataset</a>
+          
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</section>
+
+
+<section id="dads" class="page">
+  <div class="container_12">
+    <div class="grid_12">
+      <h2>Part 1. Data Analyst vs Data Scientist</h2>
+      <img src="./mini_pro/plot/da_des.png" width="400" height="400" alt="" class="fright">
+      <img src="./mini_pro/plot/ds_des.png" width="400" height="400" alt="" class="fright">
+        <p>
+        <h4>Similarity vs Difference</h4>
+        <br>I drew two wordclouds based on the job description of data analyst and data scientist respectively to identify the similarity and difference of these two positions. 
+        <br>Similarity: These two positions both require candidates to have a business sense and analytic skills to provide business solutions. 
+        <br>Difference: Data scientist positions require candidates to have machine learning knowledge and be be able to develope models. Data analyst positions require a stronger analysis ability, and report writing ability to support management. 
+        
+        <p><iframe height="600px" name="Years of Experience Required"
+                                    src="./mini_pro/plot/dads_experience.html"
+                                    width="800px" style="border: none" class="fleft">
+                            </iframe>
+        
+      
+        <h4>Years of Experience Required</h4>
+        <p>
+        <br>This plot shows the minimum years of experience required in job description of data analyst and data scientist. Generally, both data analysts and data scientists are expected to have at least 2-5 years of experience. The maximum years of experience required for a data analyst is 8 years, while the maimum years of experience required for a data scientist can be up to 13 years.
+        <a href="./mini_pro/code/Q3_html.html" class="btn">Part 1 Code </a>
+        
+      </div>
+      
+    <div class="clear"></div>
+  </div>
+</section>
+
+
+<section id="elective" class="page">
+  <div class="container_12">
+    <div class="grid_12">
+      <h2>Part 2. Elective Courses ANLY590 and ANLY591</h2>
+      <img src="./mini_pro/plot/DL_wc.png" width="450" height="450" alt="" class="fright">
+        <br>
+        <h4>Key Words in Neural Nets and Deep Learning Job Description</h4>
+        <br>We can identify key skills in the field of neural nets and deep learning: neural network, deep learning, machine learning, algorithm, software engineering, develope models, AI, research, computer, vision. DSAN students who are interested in this field can search for these job titles: deep learning engineer, machine learning engineer, research scientist, computer vision engineer, AI Engineer.
+        <p>
+        <h4>Network of Key Words in Neural Network Deep Learning Field</h4>
+        <br>This plot shows the network of key words in the position requiring the skills of neural network, deep learning, and reinforcement learning. The main central nodes are 'learn', 'machine learning', 'develop'. 'engineering computing' and 'develope' has a very strong connection. 'develope machine learning' and 'required skills' has a very strong connection. We can know that machine learning is the most essential skill in this field.
+        <br><a href="./mini_pro/code/Q1_html.html" class="btn">Part 2 Code </a>
+        <br>
+        <img src="./mini_pro/plot/network_DL.png" width="1000" height="1000" alt="">
+      </div>
+    <div class="clear"></div>
+  </div>
+</section>
+
+<section id="dc" class="page">
+  <div class="container_12">
+    <div class="grid_12">
+      <h2>Part 3. Top 10 Targeted Companies in DC Area</h2>
+      <img src="./mini_pro/plot/com_DC.png" width="1200" height="675" alt="">
+        <br>
+        <h4>The companies have the most amount of data related positions in DC area</h4>
+        <br>Since original the DC search result extend outside of the specifieed search area, I only selected the data related positions in DC, VA and MA. From the graph above, we can see that Booz Allen Hamilton has the most amount of data related positions. The top 10 targeted companies for those students who only want to work in DC area are Booz Allen Hamilton, Deloitte, cs information Technology, Lockheed Martin, Peraton, Amazon Web Srvices Inc., Leidos, ManTech International, Scale AI, and Cyrad Solutions LLC. Only these 10 companies have opened data related positions at 04/14/2023. From this graph we can also know that most data related jobs are distributed in many companies instead of being clustered in specific companies.
+        <p>
+        <br><a href="./mini_pro/code/Q2_html.html" class="btn">Part 3 Code </a>
+        
+      </div>
+    <div class="clear"></div>
+  </div>
+</section>
+
+<section id="ca" class="page">
+  <div class="container_12">
+    <div class="grid_12">
+      <h2>Part 4. Technology in California</h2>
+      <p><iframe height="800px" name="Data Related Jobs in California"
+                                    src="./mini_pro/plot/CA.html"
+                                    width="1200px" style="border: none">
+                            </iframe>
+        <br>
+        <h4>The Distributiion of Data Related Jobs in California</h4>
+        <br>We all know that California is the global leader in technology innovation. This treemap shows how the technology industry distributed in CA according to the opened data related positions. San Francisco has the largest concentration of high-tech companies. Palo Alto, Los Angeles, Cupertino and San Jose are also ideal places for DSAN students to start their career.
+        <p>
+        <br><a href="./mini_pro/code/Q4_html.html" class="btn">Part 4 Code </a>
+        
+      </div>
+    <div class="clear"></div>
+  </div>
+</section>
+
+<!--==============================
+              footer
+=================================-->
+</div>
+<footer id="footer">
+  <div class="container_12">
+    <div class="grid_12">
+      
+    </div>
+  </div>
+  <div class="clear"></div>
+</footer>
+<a href="#" id="toTop" class="fa fa-chevron-up"></a>
+<script src="./Jieyi/js/jquery.singlePageNav.min.js"></script>
+<script>
+  // Prevent console.log from generating errors in IE for the purposes of the demo
+  if ( ! window.console ) console = { log: function(){} };
+  // The actual plugin
+  $('.single-page-nav').singlePageNav({
+      offset: $('.single-page-nav').outerHeight(),
+      filter: ':not(.external)',
+      updateHash: true,
+      beforeStart: function() {
+          console.log('begin scrolling');
+      },
+      onComplete: function() {
+          console.log('done scrolling');
+      }
+  });
+</script>
+<script type="text/javascript">
+          google_api_map_init();
+          function google_api_map_init(){
+            var map;
+            var coordData = new google.maps.LatLng(parseFloat(40.646197), parseFloat(-73.9724068,14));
+            var styleArray = [
+    {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#193341"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#2c5a71"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#29768a"
+            },
+            {
+                "lightness": -37
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#406d80"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#406d80"
+            }
+        ]
+    },
+    {
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#3e606f"
+            },
+            {
+                "weight": 2
+            },
+            {
+                "gamma": 0.84
+            }
+        ]
+    },
+    {
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "weight": 0.6
+            },
+            {
+                "color": "#1a3541"
+            }
+        ]
+    },
+    {
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#2c5a71"
+            }
+        ]
+    }
+]
+            function initialize() {
+              var mapOptions = {
+                zoom: 13,
+                center: coordData,
+                scrollwheel: false,
+                styles: styleArray
+              }
+              var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+            google.maps.event.addDomListener(window, 'resize', function() {
+              map.setCenter(coordData);
+              var center = map.getCenter();
+            });
+          }
+            google.maps.event.addDomListener(window, "load", initialize);
+          }
+      </script>
+              <!--[if IE]><script type="text/javascript" src="./Jieyi/js/excanvas.js"></script><![endif]-->
+      <script src="./Jieyi/js/jquery.knob.js"></script>
+<script>
+  $(function($) {
+    $(".knob").knob({
+        change : function (value) {
+            //console.log("change : " + value);
+        },
+        release : function (value) {
+            //console.log(this.$.attr('value'));
+            console.log("release : " + value);
+        },
+        cancel : function () {
+            console.log("cancel : ", this);
+        },
+        /*format : function (value) {
+            return value + '%';
+        },*/
+        draw : function () {
+            // "tron" case
+            if(this.$.data('skin') == 'tron') {
+                this.cursorExt = 0.3;
+                var a = this.arc(this.cv)  // Arc
+                    , pa                   // Previous arc
+                    , r = 1;
+                this.g.lineWidth = this.lineWidth;
+                if (this.o.displayPrevious) {
+                    pa = this.arc(this.v);
+                    this.g.beginPath();
+                    this.g.strokeStyle = this.pColor;
+                    this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, pa.s, pa.e, pa.d);
+                    this.g.stroke();
+                }
+                this.g.beginPath();
+                this.g.strokeStyle = r ? this.o.fgColor : this.fgColor ;
+                this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, a.s, a.e, a.d);
+                this.g.stroke();
+                this.g.lineWidth = 2;
+                this.g.beginPath();
+                this.g.strokeStyle = this.o.fgColor;
+                this.g.arc( this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
+                this.g.stroke();
+                return false;
+            }
+        }
+    });
+    // Example of infinite knob, iPod click wheel
+    var v, up=0,down=0,i=0
+        ,$idir = $("div.idir")
+        ,$ival = $("div.ival")
+        ,incr = function() { i++; $idir.show().html("+").fadeOut(); $ival.html(i); }
+        ,decr = function() { i--; $idir.show().html("-").fadeOut(); $ival.html(i); };
+    $("input.infinite").knob(
+                        {
+                        min : 0
+                        , max : 20
+                        , stopper : false
+                        , change : function () {
+                                        if(v > this.cv){
+                                            if(up){
+                                                decr();
+                                                up=0;
+                                            }else{up=1;down=0;}
+                                        } else {
+                                            if(v < this.cv){
+                                                if(down){
+                                                    incr();
+                                                    down=0;
+                                                }else{down=1;up=0;}
+                                            }
+                                        }
+                                        v = this.cv;
+                                    }
+                        });
+    });
+</script>
+<script src="./Jieyi/js/isotop_ini.js"></script>
+</body>
+</html>

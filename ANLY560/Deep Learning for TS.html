@@ -1,0 +1,277 @@
+<html>
+<head>
+
+
+<style>
+
+body {
+	font-family:verdana;
+    
+    background-image: ;
+    background-color:#FFF8DC;
+
+}
+
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #00CED1;
+    max-width:1357px;
+}
+
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 15px 15px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: DarkSeaGreen;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 150px;
+    
+    
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    
+}
+
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: .6;
+}
+
+td {
+    padding: 5px;
+    text-align: left;
+    width: 500px;
+}
+
+tr{
+   padding: 0px;
+   text-align: top;
+   background-color:#ffffff
+}
+
+img:hover {
+  opacity: .8;
+}
+
+</style>
+
+
+
+</head>
+
+
+<body>
+
+
+
+<ul>
+    
+  <li><a href="./ANLY560/About Me.html">About Me</a></li>
+  
+  <li class="dropdown">
+  <li><a href="./ANLY560/Introduction.html">Introduction</a></li>
+  
+  <li class="dropdown">
+    <a href="./ANLY560/Data Sources.html">Data Sources</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+  
+  <li class="dropdown">
+    <a href="./ANLY560/Data Visualization.html">Data Visualization</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+  
+  
+<li class="dropdown">
+    <a href="./ANLY560/Exploratory Data Analysis.html">Exploratory Data Analysis</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+
+<li class="dropdown">
+    <a href="./ANLY560/ARIMA_Model.html">ARMA/ARIMA/SARIMA Models</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY560/Spectral Analysis and Filtering.html">Spectral Analysis and Filtering</a>
+    
+    <div class="dropdown-content">
+      
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY560/Financial Time Series Models ARCH GARCH.html">Financial Time Series Models (ARCH GARCH)</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY560/Deep Learning for TS.html">Deep Learning for TS</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY560/Conclusions.html">Conclusions</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+</ul>
+
+
+<table>
+   <tr>
+      <td>
+       <br><font color=#0779AB size = "4"> I used the Adjusted Close Stock Price of BKNG in this part. Keras was used to fit three different network models (1 RNN, 1 GRU, 1 LSTM) to make futher predictions. I have trained data-sets and use regularization to avoid over-fitting. For each model, I choose different epoches when the training loss and validation loss are low enough for well prediction.
+      
+      </td>
+       
+      <td>
+       <p><font color=#0779AB size = "4">
+       <a href="./ANLY560/BKNG.csv" class="download" download="BKNG.csv">Download Close Stick Price of BKNG</a>
+       <p><font color=#0779AB size = "4">
+       <a href="./ANLY560/RNN_LSTM_GRU.py" class="download" download="RNN_LSTM_GRU.py">Download python code for RNN LSTM GRU models</a>
+       
+      </td>
+   </tr>
+   
+   <tr>
+       <td>
+           <br><img src="./ANLY560/Train_RNN.jpg
+"width=500px height=400px>
+<br><font color=#0779AB size = "4"> <br>Train Simple RNN for 80 epoches
+<br>input_shape=(7,1) Simple RNN (activation='relu') + DenseLayer
+<br> The plot shows the training and validation mean absolute error or loss of the RNN model. The training loss and validation loss get smaller as the epoch increases. When the epoch was 80, logged MAE is below -1.0, so I choose 80 epoches for prediction.
+           </td>
+          <td>
+              <br><font color=#0779AB size = "4"> <br><img src="./ANLY560/Prediction_RNN.jpg"width=500px height=400px> <br>Prediction_RNN
+              <br>The prediction data are very close to the actual data though with a bit lag. 
+          </td>
+   </tr>
+   
+   <tr>
+       <td>
+           <br><img src="./ANLY560/Train_RNN_r_300.jpg"width=500px height=400px>
+<br><font color=#0779AB size = "4"> <br>Train RNN with Dropout Regularization with 300 epochs
+<br>input_shape=(7,1), Simple RNN + Dense Layer + dropout rate (0.1/0.5)
+           </td>
+          <td>
+              <br><font color=#0779AB size = "4"> <br><img src="./ANLY560/Prediction_RNN_r_300.jpg"width=500px height=400px> <br>Prediction of Simple RNN with Droupout Regularization
+              <br>After adding dropout regularization, simple RNN model performs a great prediction showing high consistency with the actual value.
+          </td>
+   </tr>
+    
+    <tr>
+       <td>
+           <br><img src="./ANLY560/Train_LSTM_200.jpg
+"width=500px height=400px>
+<br><font color=#0779AB size = "4"> <br>Train LSTM for 200 epoches
+<br>input_shape=(7,1) LSTM (activation='relu') + DenseLayer
+<br> LSTM model has a lower training and validation loss than simple RNN model.
+           </td>
+          <td>
+              <br><font color=#0779AB size = "4"> <br><img src="./ANLY560/Prediction_LSTM_200.jpg"width=500px height=400px> <br>Prediction of LSTM
+              <br>The prediction made for test shows great consistency with the true value, though there is a bit lag with the prediction values. 
+          </td>
+   </tr>   
+ 
+<tr>
+       <td>
+           <br><img src="./ANLY560/Train_LSTM_r_600.jpg
+"width=500px height=400px>
+<br><font color=#0779AB size = "4"> <br>Train LSTM with regularization for 600 epoches
+<br>input_shape=(7,1) LSTM (activation='relu') + DenseLayer + dropout rate (0.1/0.05)
+           </td>
+          <td>
+              <br><font color=#0779AB size = "4"> <br><img src="./ANLY560/Prediction_LSTM_r_600.jpg"width=500px height=400px> <br>Prediction of LSTM with regularization
+              <br>The prediction of LSTM model with regularization is very similar with the prediction of GRU model without regularization. It can not perform a good consistency with a dramatic increase but can predict the increasing trend.
+          </td>
+   </tr>  
+   
+<tr>
+       <td>
+           <br><img src="./ANLY560/Train_GRU_400.jpg
+"width=500px height=400px>
+<br><font color=#0779AB size = "4"> <br>Train GRU for 400 epoches
+<br>input_shape=(7,1) GRU(activation='relu') + DenseLayer
+           </td>
+          <td>
+              <br><font color=#0779AB size = "4"> <br><img src="./ANLY560/Prediction_GRU_400.jpg"width=500px height=400px> <br>Prediction of GRU
+              <br>The prediction of GRU model is worse than RNN and LSTM. The MAE also decreases quite slowly as the increasing of epoch.
+          </td>
+   </tr>  
+   
+<tr>
+       <td>
+           <br><img src="./ANLY560/Train_GRU_r_400.jpg
+"width=500px height=400px>
+<br><font color=#0779AB size = "4"> <br>Train GRU with regularization for 400 epoches
+<br>input_shape=(7,1) GRU (activation='relu') + DenseLayer + dropout rate (0.1/0.05)
+           </td>
+          <td>
+              <br><font color=#0779AB size = "4"> <br><img src="./ANLY560/Prediction_GRU_r_400.jpg"width=500px height=400px> <br>Prediction of GRU with regularization
+              <br>After adding dropout and recurrent dropout, the model performs much better on the test set. The prediction made for test set shows great consistency with the true value, though with a bit lag.  
+          </td>
+   </tr>  
+
+<tr>
+        <td>
+            <br><img src="./ANLY560/benchmark.jpg
+"width=713px height=487px>
+            </td>
+        <td>
+            <br><font color=#0779AB size = "4"><br>Comparison
+            <br>The simple RNN with dropout regularization and LSTM without dropout regularization have the best performance among these 6 deep learning models. For Average model, the RMSE is up to 140 and MAE is up tp 115. For Seasonal naive method, the RMSE is up to 318 and MAE is up to 291. For other models (ARIMA, Naive method, Drift model), their RMSE are all around 46 and MAE are all approximately 34. The accuracy of these benchmark mdoels are far below deep learning models.
+</table>
+
+
+
+
+</body>
+</html>

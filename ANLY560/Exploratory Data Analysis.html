@@ -1,0 +1,262 @@
+<html>
+<head>
+
+
+<style>
+
+body {
+	font-family:verdana;
+    
+    background-image: ;
+    background-color:#FFF8DC;
+
+}
+
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #00CED1;
+    max-width:1357px;
+}
+
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 15px 15px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: DarkSeaGreen;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 150px;
+    
+    
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    
+}
+
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: .6;
+}
+
+td {
+    padding: 5px;
+    text-align: left;
+    width: 500px;
+}
+
+tr{
+   padding: 0px;
+   text-align: top;
+   background-color:#ffffff
+}
+
+img:hover {
+  opacity: .8;
+}
+
+</style>
+
+
+
+</head>
+
+
+<body>
+
+
+
+<ul>
+    
+  <li><a href="./ANLY560/About Me.html">About Me</a></li>
+  
+  <li class="dropdown">
+  <li><a href="./ANLY560/Introduction.html">Introduction</a></li>
+  
+  <li class="dropdown">
+    <a href="./ANLY560/Data Sources.html">Data Sources</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+  
+  <li class="dropdown">
+    <a href="./ANLY560/Data Visualization.html">Data Visualization</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+  
+  
+<li class="dropdown">
+    <a href="./ANLY560/Exploratory Data Analysis.html">Exploratory Data Analysis</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+
+<li class="dropdown">
+    <a href="./ANLY560/ARIMA_Model.html">ARMA/ARIMA/SARIMA Models</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY560/Spectral Analysis and Filtering.html">Spectral Analysis and Filtering</a>
+    
+    <div class="dropdown-content">
+      
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY560/Financial Time Series Models ARCH GARCH.html">Financial Time Series Models (ARCH GARCH)</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY560/Deep Learning for TS.html">Deep Learning for TS</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY560/Conclusions.html">Conclusions</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+</ul>
+
+
+<table>
+    <tr>
+        <td>
+            <br><img src="./ANLY560/ts_SP.jpg"width=517px height=283px>
+            <br><a href="./ANLY560/EDA.Rmd" class="download" download="EDA.Rmd">EDA.Rmd</a>
+            <br><font color=#0779AB size = "4">The seasonality/periodic fluctuations can not be observed directly in this time series plot. So I will decompose the time series to see if there is seasonality/periodic.
+
+            </td>
+            <td>
+                <iframe height="600px" name="Visualization with Plotly in Python"
+                                    src="SPfig1.html"
+                                    width="800px" style="border: none">
+                            </iframe>
+                </td>
+        </tr>
+   <tr>
+      <td>
+       <br><img src="./ANLY560/decomposition.jpg
+"width=765px height=462px>
+      </td>
+       
+      <td>
+       <br><font color=#0779AB size = "4"><br>There is an increase trend of the number of daily confirmed positive cases in Singapore.
+            <br>This is a multiplicative time series.
+      </td>
+   </tr>
+   <tr>
+       <td>
+           <br><img src="./ANLY560/lag1.jpg
+"width=510px height=314px>
+<br><font color=#0779AB size = "4">Here the colours indicate the month of the variable(the number of daily confirmed positive cases in Singapore). The lines connect points in chronological order. The 12 lags all show positive relationship. The relationship is relatively strongly positive in lags 1 and 2, reflecting the high correlation in the data. This finding is consistent to the rapid changes of daily confirmed cases in Singapore.
+           
+       </td>
+       
+       <td>
+        <br><img src="./ANLY560/16lags.jpg
+"width=560px height=477px>
+       </td>
+   </tr>
+   
+   <tr>
+       <td>
+           <br><img src="./ANLY560/ACF_PACF.jpg
+"width=735px height=480px>
+<br><font color=#0779AB size = "4">ACF Plot: ACF describes how well the present value of the series is related with its past values. All lags in the ACF plot have significant acf values, indicating the time series is not stationary.
+<br>PACF Plot: The PACF plot finds correlation of the residuals. The PACF plot shows a strong relationship to the lag and a trailing off of correlation from the lag onwards. So it is good to apply Moving Average (MA) intuition to this time series data.
+        </td> 
+        
+        <td>
+          <br><img src="./ANLY560/ACF_diff.jpg
+"width=812px height=472px>
+        </td>    
+   </tr>
+
+<tr>
+       <td>
+           <br><img src="./ANLY560/campare1.jpg
+"width=747px height=490px>
+<br><font color=#0779AB size = "4">The comparison among original series and detrend series: The First Order difference plot shows that differencing is a good method for moving trend from the time series data. The Log Transformation plot shows obvious stationary compared with the original time series.
+        </td> 
+        
+        <td>
+          <br><img src="./ANLY560/compare2.jpg
+"width=749px height=473px>
+
+<br><font color=#0779AB size = "4">All ACF values in the original time series data are significant, indicating the time series is not stationary. The ACF plot of First Order Differencing shows that the data becomes stationary after detrending.
+        </td>    
+   </tr>
+<tr>
+    <td>
+        <br><img src="./ANLY560/MA_7.jpg
+"width=677px height=476px>
+</td>
+<td>
+<br><img src="./ANLY560/MA_30.jpg
+"width=749px height=473px>
+</td>
+</tr>
+<tr>
+    <td>
+<br><img src="./ANLY560/MA_91.jpg
+"width=749px height=473px>
+        </td>
+        <td>
+            <br><font color=#0779AB size = "4"> To detect the underlying trend, I smooth the time series using the "centred moving average". I used three MA windows for smoothing: week (7 days), month (30 days) and season (91 days). Comparing these 3 windows, the best MA window reflecting the underlying trend is one week. This is because the number of daily confirmed positive cases changes rapidly. 
+            </td>
+    </tr>
+   
+</table>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,301 @@
+<html>
+<head>
+
+
+<style>
+
+body {
+	font-family:verdana;
+    
+    background-image: ;
+    background-color:#FFF8DC;
+
+}
+
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #00CED1;
+    max-width:1357px;
+}
+
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 15px 15px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: DarkSeaGreen;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 150px;
+    
+    
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    
+}
+
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: .6;
+}
+
+td {
+    padding: 5px;
+    text-align: left;
+    width: 500px;
+}
+
+tr{
+   padding: 0px;
+   text-align: top;
+   background-color:#ffffff
+}
+
+img:hover {
+  opacity: .8;
+}
+
+</style>
+
+
+
+</head>
+
+
+<body>
+
+
+
+<ul>
+    <li><a href="./ANLY501/About Me.html">About Me</a></li>
+  <li><a href="./ANLY501/Introduction.html">Introduction</a></li>
+  
+  <li class="dropdown">
+    <a href="./ANLY501/Data Gathering.html">Data Gathering</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+  
+  <li class="dropdown">
+    <a href="./ANLY501/Data Cleaning.html">Data Cleaning</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+  
+  
+<li class="dropdown">
+    <a href="./ANLY501/Exploring Data.html">Exploring Data</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+
+<li class="dropdown">
+    <a href="./ANLY501/Clustering.html">Clustering</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY501/ARM and Networking.html">ARM and Networking</a>
+    
+    <div class="dropdown-content">
+      
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY501/Decision Trees.html">Decision Trees</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY501/Naive Bayes.html">Naive Bayes</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY501/SVM.html">SVM</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li><a href="./ANLY501/Conclusions.html">Conclusions</a></li>
+
+<li><a href="./ANLY501/Infographic.html">Infographic</a></li>
+
+</ul>
+
+<table>
+    <tr>
+        <td><p><font color=#17A7E7 size = "4"><strong>R part</strong></p>
+            <p>To obtain the information of public's focus on diabetes, I gathered diabetes data from News API.</p>
+    <a href="./ANLY501/API_in_R.R" class="download" download="API_in_R.R">Data Gathering1.r</a>
+<a href="./ANLY501/News.csv" download="News.csv" class="download">Diabetes NEWS.csv</a>
+<p>Here you can have a preview of the raw data I gathered from News:</p>
+<img src="./ANLY501/WechatIMG57.jpeg" width="" height="418"/>
+            </td>
+        <td>
+
+<p>Here is R code using News API to get diabetes data</p>
+<pre><code class="language-R">
+    library("httr")
+library("jsonlite")
+library("xml2")
+
+#Get the data
+##Build the URL
+base&"https://newsapi.org/v2/everything"
+q&"diabetes"
+from&"2021-08-15"
+to&"2021-09-13"
+APIKey&"99821579a2ad4d238525a36999203262"
+
+format&"text/csv"
+call1& paste(base,"?",
+               "format","=",format,"&",
+               "q", "=", q, "&",
+               "from","=",from,"&",
+               "to","=",to,"&",
+               "APIKey", "=",APIKey,
+               sep="")
+call1
+
+NewsAPI_Call& httr::GET(call1)
+NewsAPI_Call
+MYDF& httr::content(NewsAPI_Call)
+MYDF
+MYDF& MYDF$articles
+df = as.data.frame(matrix(nrow=0,ncol=7))
+colnames(df)& c("author","title","description","url","urlTolmage","PublishedAt","content")
+for (i in 1:20){
+  MYDF[[i]]["source"] & NULL
+}
+
+MYDF1& MYDF[[1]]
+MYDF2& MYDF[[2]]
+MYDF3& MYDF[[3]]
+MYDF4& MYDF[[4]]
+MYDF5& MYDF[[5]]
+MYDF6& MYDF[[6]]
+MYDF7& MYDF[[7]]
+MYDF8& MYDF[[8]]
+MYDF9& MYDF[[9]]
+MYDF10& MYDF[[10]]
+MYDF11& MYDF[[11]]
+MYDF12& MYDF[[12]]
+MYDF13& MYDF[[13]]
+MYDF14& MYDF[[14]]
+MYDF15& MYDF[[15]]
+MYDF16& MYDF[[16]]
+MYDF17& MYDF[[17]]
+MYDF18& MYDF[[18]]
+MYDF19& MYDF[[19]]
+MYDF20& MYDF[[20]]
+MYDFnew& rbind(MYDF1,MYDF2,MYDF3,MYDF4,MYDF5,MYDF6,MYDF7,MYDF8,MYDF9,MYDF10,MYDF11,MYDF12,MYDF13,MYDF14,MYDF15,MYDF16,MYDF17,MYDF18,MYDF19,MYDF20)
+##Print to a file
+NewsName="News.csv"
+##Start the file
+NewsFile& file(NewsName)
+write.csv(MYDFnew,NewsFile,row.names = FALSE)
+
+</code></pre>
+</td>
+</tr>
+<tr>
+    <td>
+<p><font color=#17A7E7 size = "4"><strong>Python part</strong></p>
+    <a href="./ANLY501/TwitterAPI_in_Python.py" class="download" download="TwitterAPI_in_Python.py">Data Gathering1.py</a>
+<a href="./ANLY501/rawtext_.txt" download="rawtext_.txt" class="download">rawtext_.txt</a>
+<p>Let's have a look at the diabetes data scraped from Twitter</p>
+<img src="./ANLY501/P11.jpg" width="640" height="360"/>
+</td>
+<td>
+<p>Here is Python code using Twitter API to get diabetes data</p>
+<pre><code class='Python language code'>
+import tweepy
+#API Key:
+consumer_key="2HlMuB8CWK0eXakreQ2PypDCr"
+#API Secret Key:
+consumer_secret="snk4MJQTg30rQsOm2KMEfk7Yiox4eVe7tkEIgNfyfcW74IGW1S"
+#Access Token:
+access_token ="1432687296143319053-Kb2YUvYbg7RHEN21MoMCtLhFsVBbzw"
+#Access Token Secret:
+access_secret ="zWzWNu6kb42uA5dKLuesioKnhmOQoj66TlpBZYkZPsZni"
+
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_secret)
+api = tweepy.API(auth)
+tweets_UK=api.user_timeline(id='Diabetes UK',count=30)
+for tweet in tweets_UK:
+    print(tweets_UK)
+    
+tweets_US=api.user_timeline(id='Roche Diabetes Care US',count=30)
+for tweet in tweets_US:
+    print(tweets_US)
+
+q=input("diabetes")
+filename="rawtext_"+q+".txt"
+f=open(filename,'a',encoding='utf-8')
+response1=tweepy.Cursor(api.search,q='diabetes',lang="en").items(300)
+matchcount=0
+for match in response1:
+    f.write(match.text)
+    f.write('\n')
+    matchcount=matchcount+1
+print(matchcount)
+print(match.text)
+</code></pre>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<p><font color=#17A7E7 size = "4"><strong>Here are other data sets downloaded from Kaggle</strong></p>
+<p>This data set is used to predict a model to detect Person has Diabetes or Not</p>
+<a href="./ANLY501/diabetes.csv" download="diabetes.csv" class="download">diabetes.csv</a>
+<p>Let's have a look at the data set</p>
+<img src="./ANLY501/P9.jpg" width="640" height="360"/>
+</tr>
+</table>
+</body>
+</html>

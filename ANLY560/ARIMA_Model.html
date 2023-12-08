@@ -1,0 +1,326 @@
+<html>
+<head>
+
+
+<style>
+
+body {
+	font-family:verdana;
+    
+    background-image: ;
+    background-color:#FFF8DC;
+
+}
+
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #00CED1;
+    max-width:1357px;
+}
+
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 15px 15px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: DarkSeaGreen;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 150px;
+    
+    
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    
+}
+
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: .6;
+}
+
+td {
+    padding: 5px;
+    text-align: left;
+    width: 500px;
+}
+
+tr{
+   padding: 0px;
+   text-align: top;
+   background-color:#ffffff
+}
+
+img:hover {
+  opacity: .8;
+}
+
+</style>
+
+
+
+</head>
+
+
+<body>
+
+
+
+<ul>
+    
+  <li><a href="./ANLY560/About Me.html">About Me</a></li>
+  
+  <li class="dropdown">
+  <li><a href="./ANLY560/Introduction.html">Introduction</a></li>
+  
+  <li class="dropdown">
+    <a href="./ANLY560/Data Sources.html">Data Sources</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+  
+  <li class="dropdown">
+    <a href="./ANLY560/Data Visualization.html">Data Visualization</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+  
+  
+<li class="dropdown">
+    <a href="./ANLY560/Exploratory Data Analysis.html">Exploratory Data Analysis</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+
+<li class="dropdown">
+    <a href="./ANLY560/ARIMA_Model.html">ARMA/ARIMA/SARIMA Models</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY560/Spectral Analysis and Filtering.html">Spectral Analysis and Filtering</a>
+    
+    <div class="dropdown-content">
+      
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY560/Financial Time Series Models ARCH GARCH.html">Financial Time Series Models (ARCH GARCH)</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY560/Deep Learning for TS.html">Deep Learning for TS</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+<li class="dropdown">
+    <a href="./ANLY560/Conclusions.html">Conclusions</a>
+    
+    <div class="dropdown-content">
+    </div>
+  </li>
+
+</ul>
+
+
+<table>
+   <tr>
+      <td>
+       <br><font color=#0779AB size = "4"> From the Data Visualization part, we can see that among these three online travel agencies, the stock price of Booking.com is far more than the other two online travel agencies. So in this part, I chose Booking as my research object. 
+      
+      </td>
+       
+      <td>
+       <p><font color=#0779AB size = "4">
+       <a href="./ANLY560/ARIMA.Rmd" class="download" download="ARIMA.Rmd">Download R code for ARIMA model</a>
+       <p><a href="./ANLY560/SARIMA.html" class="download" download="SARIMA.html">Download R code for SARIMA model</a>
+       <p><font color=#0779AB size = "4">
+       <a href="./ANLY560/BKNG_d.csv
+" class="download" download="BKNG_d.csv
+">Download Booking Stock Price Data</a>
+       
+      </td>
+   </tr>
+   
+   <tr>
+       <td>
+           <br><img src="./ANLY560/data_log.jpg
+"width=682px height=482px>
+           </td>
+          <td>
+              <br><font color=#0779AB size = "4"> The plot is the time series plot of Booking adjusted close stock price 2020-12-10 to 2022-02-16. At the end of 2021, the stock price depreciates most dramatically. Frome the EDA part, we have known that this is the time when the number of daily confirmed COVID-19 cases increased most dramatically.
+              </td>
+       </tr>
+       
+    <tr>
+        <td>
+            <br><img src="./ANLY560/acf.jpg
+"width=707px height=481px>
+            </td>
+            <td>
+                <br><font color=#0779AB size = "4"> The ACF plots of original closed price data and log transformed data both show high correlation. The p value of original data is 0.3289, so the original data is not stationary. The p value of log transformed data is 0.303, indicating the log transformed data still not stationary. So I need to difference the (transformed) time series data until it is stationary/weakly stationary.
+                </td>
+        </tr>
+        <tr>
+            <td>
+                <br><img src="./ANLY560/differenced.jpg"width=683px height=457px>
+                </td>
+                <td>
+<br><font color=#0779AB size = "4"> I differenced the log transformed data and the time series data looks stationary after 1st order differenced. Using the Augmented Dickey-Fuller Test to check the stationarity of the differenced series. The p value of 1 st differenced log transformed data is 0.01. The data is stationary after 1st order difference since p-value is less than 0.05
+                </td>
+            </tr>
+        <tr>
+            <td>
+                <br><img src="./ANLY560/df_lg.jpg
+"width=690px height=456px>
+                </td>
+                <td>
+                    <br><font color=#0779AB size = "4">I plot the ACF and PACF plots and decide the order of your AR(p) and MA(q) processes in the ARIMA(p,d,q) model. Looking at the ACF plot, there is no high correlation after lag 7. I would try [0,7] value for p value. Looking at the PACF plot, there is no hign correlation after lag 7. I would try [0,7] value for q value. In order to avoid over differencing, I would try d value of 1.
+                    </td>
+            </tr>
+        <tr>
+            <td>
+                <br><font color=#0779AB size = "4"> I used the code Arima() in r to select the model of ARIMA(p,d,q) with the lowest AIC, BIC or the model with the best model diagnostics. 
+                <br><img src="./ANLY560/equation.jpg
+"width=728px height=36px>
+                </td>
+            <td>
+                <br><font color=#0779AB size = "4"> ARIMA(1,1,3) has the lowest AIC. ARIMA(0,1,0) has the lowest BIC. According to acf and pacf plots, ARIMA(0,1,7) is best model. So I need further model diagnosis to determine the best ARIMA model.
+                </td>    
+            
+            </tr>
+        <tr>
+            <td>
+                <br><img src="./ANLY560/diagnosis113.jpg
+"width=730px height=489px>
+</td>
+<td>
+<br><font color=#0779AB size = "4">Inspection of the time plot of the standardized residuals above shows no obvious patterns.
+
+<br>The ACF of the standardized residuals shows no apparent departure from the model assumption, no significant lags shown.
+
+<br>The normal Q-Q plot  of the residuals shows that the assumption of normality is reasonable, with the exception of the possible outliers.
+
+<br>However, the p-value is less than 0.05 then the residuals are independent which we want for the model to be incorrect. A significant p-value in this test rejects the null hypothesis that the time series isn't autocorrelated.
+</td>
+</tr>    
+<tr>
+    <td>
+        <br><img src="./ANLY560/diagnosis010.jpg
+"width=730px height=489px>
+        
+        </td>
+    <td>
+<br><font color=#0779AB size = "4"> I used auto.arima() to fit an ARIMA(p,d,q) for the log transformed data. The result is same as the model chosen according to BIC but different from the model chosen according to AIC. The p value is 0.4549 (greater than 0.05) then the residuals are independent which we want for the model to be correct. So I would choose the model ARIMA(0,1,0).
+        </td>
+    </tr>
+<tr>
+    <td>
+        <br><img src="./ANLY560/forecast.jpg
+"width=477px height=324px>
+<br><img src="./ANLY560/sarima.jpg
+"width=477px height=324px>
+        </td>
+    <td>
+        <br><font color=#0779AB size = "4"> I forecast using the models obtained by evaluating AIC value: ARIMA(1,1,3) and sarima(1,1,3). The two models both show similar decreasing trend of close stock price in the near futher. However, these two forecasts can not predict specific trend in the long-term future. 
+        </td>    
+    </tr>
+    <tr>
+        <td>
+            <br><img src="./ANLY560/LAG.jpg"width=549px height=471px>
+            </td>
+        <td>
+            <br><font color=#0779AB size = "4"> According to the LAG plot, I chose lag=12 for seasonal differencing to remove seasonality. 
+            </td>    
+        </tr>
+        
+    <tr>
+        <td>
+            <br><img src="./ANLY560/seasonality.jpg"width=732px height=493px>
+            </td>
+        <td>
+             <br><img src="./ANLY560/ordinary.jpg"width=699px height=485px>
+            </td>    
+    </tr>
+    <tr>
+        <td>
+            <br><img src="./ANLY560/residue_lag12.jpg"width=710px height=496px>
+            </td>
+        <td>
+             <br><font color=#0779AB size = "4"> I fit the (p,d,q)x(P,D,Q) model with (0,1,0)x(1,1,3)[12] and do the diagnosis. The normal Q-Q plot is nearly a straight line, indicating the model is good.
+            </td>    
+    </tr>
+    <tr>
+        <td>
+            <br><img src="./ANLY560/residue_lag12.jpg"width=710px height=496px>
+            </td>
+        <td>
+             <br><font color=#0779AB size = "4"> I fit the (p,d,q)x(P,D,Q) model with (0,1,0)x(1,1,3)[12] and do the diagnosis. The normal Q-Q plot is nearly a straight line, indicating the model is good.
+            </td>    
+    </tr>
+    <tr>
+        <td>
+            <br><img src="./ANLY560/error.jpg"width=564px height=176px>
+            </td>
+        <td>
+             <br><font color=#0779AB size = "4"> I set 50 for minimum data length for fitting model.Then I do a seasonal cross validation using 1 step ahead forecasts and here is the cross validation error.
+            </td>    
+    </tr>
+    <tr>
+        <td>
+            <br><img src="./ANLY560/benchmark.jpg
+"width=713px height=487px>
+            </td>
+        <td>
+            <br><font color=#0779AB size = "4"> I compared the ARIMA model arima(0,1,0) with all the benchmark methods: Average method, Naive method, Drift method, and Seasonal naive method. The graph shows that Seasonal naive method has the best forecast on the close stock price. Seasonal naive method set each forecast to be equal to the last observed value from the same season of the year. Since the stock price time series data is highly seasonal, seasonal naive method is the most useful. 
+            </td>    
+        </tr>
+</table>
+
+
+
+
+</body>
+</html>
